@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ITECH Office Support
 
-## Getting Started
+## Internal Project – Communication Dashboard Overview
 
-First, run the development server:
+This document outlines the core screens and functionality of the internal **Communication Dashboard** used for managing and sending bulk communications.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 1. Dashboard – Recipients
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The **Recipients** screen is the first step in the communication workflow. It allows users to upload and validate recipient data before composing a message.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Key Features
 
-## Learn More
+- **Drag-and-Drop Upload Zone**
+  - Upload contact files (e.g., CSV, Excel) easily via drag and drop.
+- **Sample Template Download**
+  - Provides a downloadable sample file to ensure correct data formatting.
+- **Preview & Column Mapping Table**
+  - Displays imported data in a table format.
+  - Allows users to verify and confirm column-to-field mapping before proceeding.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2. Dashboard – Compose
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The **Compose** screen is dedicated to message creation and customization.
 
-## Deploy on Vercel
+### Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Channel Toggle**
+  - Switch between **Email** and **SMS** communication modes.
+- **Template Selector**
+  - Dropdown to select from predefined message templates.
+- **Rich Text Editor**
+  - Supports formatted content.
+  - Allows insertion of **dynamic placeholders** (e.g., recipient name, company, date).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 3. Dashboard – Review & Send
+
+The **Review & Send** screen provides a final checkpoint before dispatching communications.
+
+### Key Features
+
+- **Comprehensive Summary**
+  - Displays selected recipients, channel type, and message content.
+- **Final Message Preview**
+  - Shows how the communication will appear to recipients.
+- **Pre-Sen**
