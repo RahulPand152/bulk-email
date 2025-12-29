@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { MinimalTiptapEditor } from "../components/minimal-tiptap";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -59,7 +58,6 @@ export default function ComposePage() {
           Create and customize your message for the selected audience
         </p>
       </div>
-
       {/* Tabs for Compose, Recipients, Review */}
       <Tabs defaultValue="compose" className="w-full">
         <TabsList className="flex w-full md:w-full justify-between  mb-4">
@@ -145,11 +143,7 @@ export default function ComposePage() {
           {/* Dropdown for Templates */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
             <Label htmlFor="template">Template</Label>
-            <Select
-              id="template"
-              defaultValue="maintenance"
-              className="w-full sm:w-64"
-            >
+            <Select defaultValue="maintenance" name="template">
               <SelectTrigger>
                 <SelectValue placeholder="Select a template" />
               </SelectTrigger>
@@ -171,7 +165,6 @@ export default function ComposePage() {
           </div>
         </TabsContent>
       </Tabs>
-
       {/* Rich Text Editor */}
       <div className="mt-4">
         <MinimalTiptapEditor
@@ -180,6 +173,7 @@ export default function ComposePage() {
           className="w-full "
         />
       </div>
+      
     </div>
   );
 }
