@@ -147,10 +147,10 @@ export default function FileUploadAndTable() {
   };
 
   return (
-    <div className=" border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 text-center space-y-4 shadow-lg">
+    <div className=" border-gray-300   rounded-xl p-4 sm:p-6 text-center space-y-4 ">
       {/* File Upload Header */}
-      <div className=" border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg space-y-4">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+      <div className=" border-gray-300  rounded-xl p-4 sm:p-6  space-y-4 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 ">
           <div className="flex flex-col space-y-1 text-left">
             <h2 className="font-semibold text-base sm:text-lg">
               Import Contacts
@@ -183,7 +183,7 @@ export default function FileUploadAndTable() {
           accept=".csv,.xlsx"
         />
         <div
-          className="p-6 border border-dashed rounded-md cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+          className="p-6 border border-dashed  shadow-sm rounded-md cursor-pointer hover:bg-gray-100 transition-colors"
           onClick={handleBrowseClick}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => {
@@ -208,103 +208,69 @@ export default function FileUploadAndTable() {
           className="w-full sm:w-auto bg-blue-500 hover:bg-blue-400"
         >
           Browse Files
-        </Button>  
+        </Button>
       </div>
 
-      
       {/* Table */}
-      <div className="space-y-4">
-
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <Input
-            placeholder="Filter email..."
-            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-            onChange={(e) =>
-              table.getColumn("email")?.setFilterValue(e.target.value)
-            }
-            className="max-w-sm"
-          />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
-                Columns <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              {table
-                .getAllColumns()
-                .filter((col) => col.getCanHide())
-                .map((col) => (
-                  <DropdownMenuCheckboxItem
-                    key={col.id}
-                    className="capitalize"
-                    checked={col.getIsVisible()}
-                    onCheckedChange={(value) => col.toggleVisibility(!!value)}
-                  >
-                    {col.id}
-                  </DropdownMenuCheckboxItem>
+      <div className="rounded-md shadow-lg overflow-x-auto text-start bg-background p-2">
+        <Table className="border-separate border-spacing-y-2">
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id} className="border-0">
+                {headerGroup.headers.map((header) => (
+                  <TableHead key={header.id} className="border-0">
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </TableHead>
                 ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+              </TableRow>
+            ))}
+          </TableHeader>
 
-        <div className="rounded-md border overflow-x-auto text-start">
-          <Table>
-            <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <TableHead key={header.id}>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </TableHead>
-                  ))}
-                </TableRow>
-              ))}
-            </TableHeader>
-            <TableBody>
-              {table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <div className="flex items-center justify-between py-4 px-4">
-            {/* Left: selected rows info */}
-            <div className="text-muted-foreground text-sm">
-              {table.getFilteredSelectedRowModel().rows.length} of{" "}
-              {table.getFilteredRowModel().rows.length} row(s) selected.
-            </div>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                className="border-0 shadow-sm hover:shadow-md transition-shadow bg-background rounded-md"
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id} className="border-0 py-3">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+      <div className="mt-4 rounded-md bg-background shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-4 px-4">
+          {/* Left: selected rows info */}
+          <div className="text-muted-foreground text-sm">
+            {table.getFilteredSelectedRowModel().rows.length} of{" "}
+            {table.getFilteredRowModel().rows.length} row(s) selected.
+          </div>
 
-            {/* Right: pagination buttons */}
-            <div className="space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.previousPage()}
-                disabled={!table.getCanPreviousPage()}
-              >
-                Previous
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.nextPage()}
-                disabled={!table.getCanNextPage()}
-              >
-                Next
-              </Button>
-            </div>
+          {/* Right: pagination buttons */}
+          <div className="flex space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              Previous
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
+              Next
+            </Button>
           </div>
         </div>
       </div>

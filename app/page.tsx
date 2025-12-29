@@ -1,13 +1,15 @@
-import { Button } from "@/components/ui/button";
-import FileUploadAndTable from "./components/common/importFile";
+
+
+import MultiStepForm from "./components/multi-step-navigation";
+
+
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6">
+    <div className="max-w-6xl mx-auto px-4 py-6 pt-24">
       {/* Centered Welcome Button */}
       <div className="text-center mb-4">
-        <Button variant="ghost" size="lg">
-          Welcome to Bulk Message Sender Tool
-        </Button>
+        <MultiStepForm />
+        
       </div>
 
       {/* Description Text */}
@@ -19,9 +21,7 @@ export default function Home() {
       <div className="flex flex-col  gap-6 w-full">
         {/* File Upload Panel */}
 
-        <FileUploadAndTable />
-
-        
+        {/* <FileUploadAndTable /> */}
       </div>
     </div>
   );
