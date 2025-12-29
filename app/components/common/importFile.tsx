@@ -246,7 +246,7 @@ export default function FileUploadAndTable() {
           </DropdownMenu>
         </div>
 
-        <div className="rounded-md shadow-md overflow-x-auto text-start bg-background">
+        <div className="rounded-md shadow-lg overflow-x-auto text-start bg-background">
           <Table className="border-0 border-collapse [&_thead_tr]:border-b-0 [&_tbody_tr]:border-b-0 [&_tr]:border-0 [&_th]:border-0 [&_td]:border-0 divide-y-0 shadow-md">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (

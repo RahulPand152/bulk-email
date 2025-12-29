@@ -89,7 +89,7 @@ export default function MultiStepForm() {
         {step === 3 && (
           <div className="space-y-4">
             <h2 className="font-semibold text-lg mb-2">Step 3: Review & Submit</h2>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600">
               Review your details before submitting.
             </p>
           </div>

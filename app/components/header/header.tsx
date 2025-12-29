@@ -13,7 +13,7 @@ import { useTheme } from "next-themes";
 export default function Header() {
   const { setTheme } = useTheme();
   return (
-    <header className="flex items-center bg-white justify-between shadow-sm px-6 py-3  fixed top-0 left-0 w-full z-50">
+    <header className="flex items-center  justify-between shadow-sm px-6 py-3  fixed top-0 left-0 w-full z-50">
       {/* LEFT SIDE */}
       <div className="text-lg font-bold">Bulk System</div>
 
