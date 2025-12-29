@@ -212,65 +212,97 @@ export default function FileUploadAndTable() {
       </div>
 
       {/* Table */}
-      <div className="rounded-md shadow-lg overflow-x-auto text-start bg-background p-2">
-        <Table className="border-separate border-spacing-y-2">
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="border-0">
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="border-0">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                  </TableHead>
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row gap-4 items-center">
+          <Input
+            placeholder="Filter email..."
+            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+            onChange={(e) =>
+              table.getColumn("email")?.setFilterValue(e.target.value)
+            }
+            className="max-w-sm"
+          />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Columns <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              {table
+                .getAllColumns()
+                .filter((col) => col.getCanHide())
+                .map((col) => (
+                  <DropdownMenuCheckboxItem
+                    key={col.id}
+                    className="capitalize"
+                    checked={col.getIsVisible()}
+                    onCheckedChange={(value) => col.toggleVisibility(!!value)}
+                  >
+                    {col.id}
+                  </DropdownMenuCheckboxItem>
                 ))}
-              </TableRow>
-            ))}
-          </TableHeader>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
 
-          <TableBody>
-            {table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                className="border-0 shadow-sm hover:shadow-md transition-shadow bg-background rounded-md"
+        <div className="rounded-md shadow-md overflow-x-auto text-start bg-background">
+          <Table className="border-0 border-collapse [&_thead_tr]:border-b-0 [&_tbody_tr]:border-b-0 [&_tr]:border-0 [&_th]:border-0 [&_td]:border-0 divide-y-0 shadow-md">
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <TableHead key={header.id}>
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                    </TableHead>
+                  ))}
+                </TableRow>
+              ))}
+            </TableHeader>
+
+            <TableBody>
+              {table.getRowModel().rows.map((row) => (
+                <TableRow key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+
+          <div className="flex items-center justify-between py-4 px-4">
+            <div className="text-muted-foreground text-sm">
+              {table.getFilteredSelectedRowModel().rows.length} of{" "}
+              {table.getFilteredRowModel().rows.length} row(s) selected.
+            </div>
+
+            <div className="space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => table.previousPage()}
+                disabled={!table.getCanPreviousPage()}
               >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className="border-0 py-3">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-      <div className="mt-4 rounded-md bg-background shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-4 px-4">
-          {/* Left: selected rows info */}
-          <div className="text-muted-foreground text-sm">
-            {table.getFilteredSelectedRowModel().rows.length} of{" "}
-            {table.getFilteredRowModel().rows.length} row(s) selected.
-          </div>
-
-          {/* Right: pagination buttons */}
-          <div className="flex space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.previousPage()}
-              disabled={!table.getCanPreviousPage()}
-            >
-              Previous
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.nextPage()}
-              disabled={!table.getCanNextPage()}
-            >
-              Next
-            </Button>
+                Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => table.nextPage()}
+                disabled={!table.getCanNextPage()}
+              >
+                Next
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -78,6 +78,7 @@ export default function ComposePage() {
         </TabsList>
 
         {/* Compose Tab */}
+        
         <TabsContent value="compose" className="space-y-4">
           {/* Dropdown for Templates */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
