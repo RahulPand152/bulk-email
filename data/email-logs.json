@@ -1,0 +1,56 @@
+{
+  "emailLogs": [
+    {
+      "id": 1767164356244.4697,
+      "to": "panditchandan343@gmail.com",
+      "subject": "Welcome to Kaamhubs",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2025-12-31T06:59:16.244Z"
+    },
+    {
+      "id": 1767164356358.6362,
+      "to": "rahultoprove982687@gmail.com",
+      "subject": "Welcome to Kaamhubs",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2025-12-31T06:59:16.358Z"
+    },
+    {
+      "id": 1767166108402.2712,
+      "to": "panditchandan343@gmail.com",
+      "template": "KaamhubsFeedbackEmail",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2025-12-31T07:28:28.402Z"
+    },
+    {
+      "id": 1767166108542.3652,
+      "to": "rahultoprove982687@gmail.com",
+      "template": "KaamhubsMarketingEmail",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2025-12-31T07:28:28.542Z"
+    },
+    {
+      "id": 1767166204853.7427,
+      "to": "rahultoprove982687@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2025-12-31T07:30:04.853Z"
+    },
+    {
+      "id": 1767166204994.3728,
+      "to": "panditchandan343@gmail.com",
+      "template": " feedback",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2025-12-31T07:30:04.994Z"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"use client";
+
 
 import {
   Body,
@@ -17,8 +17,8 @@ import {
   pixelBasedPreset,
 } from "@react-email/components";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
+const baseUrl = process.env.KAAMHUBS_URL
+  ? process.env.KAAMHUBS_URL
   : "http://localhost:3000";
 
 interface KaamhubsMarketingEmailProps {
@@ -27,6 +27,7 @@ interface KaamhubsMarketingEmailProps {
   email?: string;
   contactNumber?: string;
   ctaLink?: string;
+   htmlContent: string;
 }
 
 export const KaamhubsMarketingEmail = ({
@@ -49,16 +50,16 @@ export const KaamhubsMarketingEmail = ({
             {/* Logo */}
             <Section className="text-center mb-4">
               <Img
-                src={`${baseUrl}/logo_final_2.png`}
-                width="44"
-                height="44"
+                src={`${baseUrl}/logo_final.webp`}
+                width="60"
+                height="60"
                 alt="Kaamhubs Logo"
                 className="mx-auto"
               />
             </Section>
 
             {/* Heading */}
-            <Heading className="text-center text-[24px] font-semibold text-black">
+            <Heading className="text-center  text-[15px]  font-semibold text-black">
               Grow Your Career with{" "}
               <strong>
                 <span className="text-[#3777bd]">Kaam</span>
@@ -72,10 +73,10 @@ export const KaamhubsMarketingEmail = ({
             </Text>
 
             {/* Marketing Message */}
-            <Text className="text-[14px] text-black leading-relaxed">
+            <Text className="text-[14px]  leading-relaxed">
               Kaamhubs is a modern platform designed to connect professionals,
               freelancers, and businesses with meaningful opportunities. Whether
-              you're looking to hire, collaborate, or grow your career, Kaamhubs
+              you are looking to hire, collaborate, or grow your career, Kaamhubs
               helps you move faster and smarter.
             </Text>
 
@@ -93,7 +94,7 @@ export const KaamhubsMarketingEmail = ({
             <Section className="text-center my-6">
               <Button
                 href={ctaLink}
-                className="rounded bg-black px-6 py-3 text-[13px] font-semibold text-white no-underline"
+                className="rounded px-6 py-3 text-[13px] font-semibold bg-[#3777bd] text-white no-underline"
               >
                 Explore Kaamhubs
               </Button>

@@ -17,7 +17,6 @@ export default function MultiStepForm() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6 space-y-6 shadow-2xl rounded-2xl ">
-      
       {/* Header */}
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-bold">
@@ -52,15 +51,17 @@ export default function MultiStepForm() {
                 <div
                   className={`w-10 h-10 flex items-center justify-center rounded-full font-bold border-2 transition-all duration-300 ${
                     isActive
-                      ? "bg-blue-500 text-white border-blue-500"
+                      ? "bg-blue-500  border-blue-500"
                       : isCompleted
-                      ? "bg-blue-300 text-white border-blue-300"
+                      ? "bg-blue-300  border-blue-300"
                       : "bg-gray-100 border-gray-300 dark:border-gray-600"
                   }`}
                 >
                   {isCompleted ? "✓" : stepNumber}
                 </div>
-                <p className="text-center mt-2 text-sm font-medium">Step {stepNumber}</p>
+                <p className="text-center mt-2 text-sm font-medium">
+                  Step {stepNumber}
+                </p>
                 <p className="text-xs text-gray-500 mt-1">
                   {stepNumber === 1 && "Import"}
                   {stepNumber === 2 && "Compose"}
@@ -81,14 +82,16 @@ export default function MultiStepForm() {
           </div>
         )}
         {step === 2 && (
-            <div className="space-y-4">
-                <h2 className="font-semibold text-lg mb-2">Step 2: Compose</h2>
-          <ComposePage />
+          <div className="space-y-4">
+            <h2 className="font-semibold text-lg mb-2">Step 2: Compose</h2>
+            <ComposePage />
           </div>
         )}
         {step === 3 && (
           <div className="space-y-4">
-            <h2 className="font-semibold text-lg mb-2">Step 3: Review & Submit</h2>
+            <h2 className="font-semibold text-lg mb-2">
+              Step 3: Review & Submit
+            </h2>
             <p className="text-gray-600">
               Review your details before submitting.
             </p>
@@ -109,7 +112,13 @@ export default function MultiStepForm() {
         {step < totalSteps ? (
           <Button onClick={nextStep}>Next</Button>
         ) : (
-          <Button className="bg-green-500 hover:bg-green-600">Submit</Button>
+          <Button
+            onClick={async () => {
+              await fetch("/api/send-email", { method: "POST" });
+            }}
+          >
+            Send Email
+          </Button>
         )}
       </div>
     </div>
