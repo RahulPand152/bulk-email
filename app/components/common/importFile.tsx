@@ -147,10 +147,10 @@ export default function FileUploadAndTable() {
   };
 
   return (
-    <div className=" border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 text-center space-y-4 shadow-lg">
+    <div className=" border-gray-300   rounded-xl p-4 sm:p-6 text-center space-y-4 ">
       {/* File Upload Header */}
-      <div className=" border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg space-y-4">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+      <div className=" border-gray-300  rounded-xl p-4 sm:p-6  space-y-4 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 ">
           <div className="flex flex-col space-y-1 text-left">
             <h2 className="font-semibold text-base sm:text-lg">
               Import Contacts
@@ -183,7 +183,7 @@ export default function FileUploadAndTable() {
           accept=".csv,.xlsx"
         />
         <div
-          className="p-6 border border-dashed rounded-md cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+          className="p-6 border border-dashed  shadow-sm rounded-md cursor-pointer hover:bg-gray-100 transition-colors"
           onClick={handleBrowseClick}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => {
@@ -208,13 +208,11 @@ export default function FileUploadAndTable() {
           className="w-full sm:w-auto bg-blue-500 hover:bg-blue-400"
         >
           Browse Files
-        </Button>  
+        </Button>
       </div>
 
-      
       {/* Table */}
       <div className="space-y-4">
-
         <div className="flex flex-col sm:flex-row gap-4 items-center">
           <Input
             placeholder="Filter email..."
@@ -248,8 +246,8 @@ export default function FileUploadAndTable() {
           </DropdownMenu>
         </div>
 
-        <div className="rounded-md border overflow-x-auto text-start">
-          <Table>
+        <div className="rounded-md shadow-lg overflow-x-auto text-start bg-background">
+          <Table className="border-0 border-collapse [&_thead_tr]:border-b-0 [&_tbody_tr]:border-b-0 [&_tr]:border-0 [&_th]:border-0 [&_td]:border-0 divide-y-0 shadow-md">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
@@ -264,6 +262,7 @@ export default function FileUploadAndTable() {
                 </TableRow>
               ))}
             </TableHeader>
+
             <TableBody>
               {table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id}>
@@ -279,14 +278,13 @@ export default function FileUploadAndTable() {
               ))}
             </TableBody>
           </Table>
+
           <div className="flex items-center justify-between py-4 px-4">
-            {/* Left: selected rows info */}
             <div className="text-muted-foreground text-sm">
               {table.getFilteredSelectedRowModel().rows.length} of{" "}
               {table.getFilteredRowModel().rows.length} row(s) selected.
             </div>
 
-            {/* Right: pagination buttons */}
             <div className="space-x-2">
               <Button
                 variant="outline"
