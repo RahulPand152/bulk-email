@@ -16,20 +16,20 @@ const templates = [
   {
     id: "marketing_email",
     name: "Marketing Email",
-    subject: "Grow Your Career with Kaamhubs",
-    body: "<p>Hello! Kaamhubs helps professionals, freelancers, and businesses connect with meaningful opportunities. Explore new projects and grow your career today!</p>",
+    subject: "Grow Your Career with {company}",
+    body: "<p>Hello! {company} helps professionals, freelancers, and businesses connect with meaningful opportunities. Explore new projects and grow your career today!</p>",
   },
   {
     id: "promotion_offer",
     name: "Promotional Offer",
-    subject: "Exclusive Kaamhubs Offer Just for You!",
-    body: "<p>Hi there! Use code <strong>KAAM50</strong> to get 50% off Kaamhubs services. Hurry, limited time offer!</p>",
+    subject: "Exclusive Offer for You at {company}!",
+    body: "<p>Hi there! Use code <strong>KAAM50</strong> to get 50% off {company} services. Hurry, limited time offer!</p>",
   },
   {
     id: "advertisement",
     name: "Advertisement Email",
-    subject: "Discover Kaamhubs Opportunities Today",
-    body: "<p>Kaamhubs connects you with businesses and professionals worldwide. Find new opportunities, grow your network, and succeed faster!</p>",
+    subject: "Discover {company} Opportunities Today",
+    body: "<p>{company} connects you with businesses and professionals worldwide. Find new opportunities, grow your network, and succeed faster!</p>",
   },
 ];
 
@@ -78,7 +78,7 @@ export default function ComposePage() {
         </TabsList>
 
         {/* Compose Tab */}
-        
+
         <TabsContent value="compose" className="space-y-4">
           {/* Dropdown for Templates */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
@@ -174,7 +174,6 @@ export default function ComposePage() {
           className="w-full "
         />
       </div>
-      
     </div>
   );
 }

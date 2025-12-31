@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+
 import ExcelJS from "exceljs";
 import { CloudUpload, Download, ArrowUpDown, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -37,6 +38,7 @@ export type Contact = {
   lastName: string;
   email: string;
   phoneNumber: string;
+  template?: string; // Selected template for this recipient
 };
 
 // CSV Template
@@ -68,6 +70,37 @@ export const columns: ColumnDef<Contact>[] = [
   { accessorKey: "phoneNumber", header: "Phone Number" },
 ];
 
+// Template column creator - used in the component to allow dynamic updates
+const createTemplateColumn = (
+  data: Contact[],
+  setData: React.Dispatch<React.SetStateAction<Contact[]>>
+): ColumnDef<Contact> => ({
+  id: "template",
+  header: "Email Template",
+  cell: ({ row }) => {
+    const contact = row.original;
+    return (
+      <select
+        value={contact.template || "marketing"}
+        onChange={(e) => {
+          const updated = [...data];
+          const index = updated.findIndex((c) => c.email === contact.email);
+          if (index !== -1) {
+            updated[index].template = e.target.value;
+            setData(updated);
+            localStorage.setItem("contacts_csv", JSON.stringify(updated));
+          }
+        }}
+        className="px-2 py-1 rounded bg-gray-800 text-sm border border-gray-600"
+      >
+        <option value="marketing">Marketing</option>
+        <option value="feedback">Feedback</option>
+        <option value="promotional">Promotional</option>
+      </select>
+    );
+  },
+});
+
 export default function FileUploadAndTable() {
   const [fileName, setFileName] = useState<string | null>(null);
   const [data, setData] = useState<Contact[]>([]);
@@ -75,6 +108,19 @@ export default function FileUploadAndTable() {
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("contacts_csv");
+    const savedFileName = localStorage.getItem("contacts_file_name");
+
+    if (savedData) {
+      setData(JSON.parse(savedData));
+    }
+
+    if (savedFileName) {
+      setFileName(savedFileName);
+    }
+  }, []);
 
   const table = useReactTable({
     data,
@@ -97,6 +143,7 @@ export default function FileUploadAndTable() {
     const sheet = workbook.worksheets[0];
     const rows = sheet.getSheetValues().slice(1); // skip first undefined row
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const jsonData = rows.map((row: any) => ({
       firstName: row[1]
         ? typeof row[1] === "object"
@@ -121,6 +168,8 @@ export default function FileUploadAndTable() {
     }));
 
     setData(jsonData);
+    localStorage.setItem("contacts_csv", JSON.stringify(jsonData));
+    localStorage.setItem("contacts_file_name", file.name);
   };
 
   const handleBrowseClick = () => inputRef.current?.click();
