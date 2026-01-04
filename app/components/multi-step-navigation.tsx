@@ -4,10 +4,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ComposePage from "../compose/compose-page";
 import FileUploadAndTable from "./common/importFile";
+import EmailLogsPage from "./emaillogs";
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(1);
-  const totalSteps = 3;
+  const totalSteps = 3 ;
 
   const nextStep = () => setStep((prev) => Math.min(prev + 1, totalSteps));
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
@@ -89,12 +90,9 @@ export default function MultiStepForm() {
         )}
         {step === 3 && (
           <div className="space-y-4">
-            <h2 className="font-semibold text-lg mb-2">
-              Step 3: Review & Submit
-            </h2>
-            <p className="text-gray-600">
-              Review your details before submitting.
-            </p>
+            <h2 className="font-semibold text-lg mb-2">Step 3: Review</h2>
+
+            <EmailLogsPage />
           </div>
         )}
       </div>
@@ -109,17 +107,8 @@ export default function MultiStepForm() {
         >
           Previous
         </Button>
-        {step < totalSteps ? (
-          <Button onClick={nextStep}>Next</Button>
-        ) : (
-          <Button
-            onClick={async () => {
-              await fetch("/api/send-email", { method: "POST" });
-            }}
-          >
-            Send Email
-          </Button>
-        )}
+        {step < totalSteps && <Button onClick={nextStep}>Next</Button>}
+
       </div>
     </div>
   );

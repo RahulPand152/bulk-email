@@ -31,6 +31,7 @@ import {
   type ColumnFiltersState,
   type SortingState,
 } from "@tanstack/react-table";
+import { Checkbox } from "@/components/ui/checkbox";
 
 // Type for table data
 export type Contact = {
@@ -38,7 +39,7 @@ export type Contact = {
   lastName: string;
   email: string;
   phoneNumber: string;
-  template?: string; // Selected template for this recipient
+  selected?: boolean;
 };
 
 // CSV Template
@@ -53,6 +54,28 @@ const csvTemplate = [
 
 // Table columns
 export const columns: ColumnDef<Contact>[] = [
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
   { accessorKey: "firstName", header: "First Name" },
   { accessorKey: "lastName", header: "Last Name" },
   {
@@ -70,38 +93,11 @@ export const columns: ColumnDef<Contact>[] = [
   { accessorKey: "phoneNumber", header: "Phone Number" },
 ];
 
-// Template column creator - used in the component to allow dynamic updates
-const createTemplateColumn = (
-  data: Contact[],
-  setData: React.Dispatch<React.SetStateAction<Contact[]>>
-): ColumnDef<Contact> => ({
-  id: "template",
-  header: "Email Template",
-  cell: ({ row }) => {
-    const contact = row.original;
-    return (
-      <select
-        value={contact.template || "marketing"}
-        onChange={(e) => {
-          const updated = [...data];
-          const index = updated.findIndex((c) => c.email === contact.email);
-          if (index !== -1) {
-            updated[index].template = e.target.value;
-            setData(updated);
-            localStorage.setItem("contacts_csv", JSON.stringify(updated));
-          }
-        }}
-        className="px-2 py-1 rounded bg-gray-800 text-sm border border-gray-600"
-      >
-        <option value="marketing">Marketing</option>
-        <option value="feedback">Feedback</option>
-        <option value="promotional">Promotional</option>
-      </select>
-    );
-  },
-});
-
-export default function FileUploadAndTable() {
+export default function FileUploadAndTable({
+  onSelectedContactsChange,
+}: {
+  onSelectedContactsChange?: (contacts: Contact[]) => void;
+} = {}) {
   const [fileName, setFileName] = useState<string | null>(null);
   const [data, setData] = useState<Contact[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -132,7 +128,14 @@ export default function FileUploadAndTable() {
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    enableRowSelection: true,
   });
+
+  // Get selected contacts
+   const getSelectedContacts = () => {
+    return table.getSelectedRowModel().rows.map((row) => row.original);
+  };
+ 
 
   // Handle file upload (CSV/XLSX)
   const handleFileUpload = async (file: File) => {
@@ -141,8 +144,7 @@ export default function FileUploadAndTable() {
     await workbook.xlsx.load(await file.arrayBuffer());
 
     const sheet = workbook.worksheets[0];
-    const rows = sheet.getSheetValues().slice(1); // skip first undefined row
-
+    const rows = sheet.getSheetValues().slice(1);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const jsonData = rows.map((row: any) => ({
       firstName: row[1]
@@ -171,6 +173,21 @@ export default function FileUploadAndTable() {
     localStorage.setItem("contacts_csv", JSON.stringify(jsonData));
     localStorage.setItem("contacts_file_name", file.name);
   };
+
+  // Notify parent and save to localStorage when selection changes
+  useEffect(() => {
+    const selectedContacts = getSelectedContacts();
+    const recipients = selectedContacts.map((c) => ({
+      email: c.email,
+      firstName: c.firstName,
+      lastName: c.lastName,
+    }));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("email_recipients", JSON.stringify(recipients));
+    }
+    onSelectedContactsChange?.(selectedContacts);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [table.getSelectedRowModel().rows.length]);
 
   const handleBrowseClick = () => inputRef.current?.click();
 
@@ -355,6 +372,45 @@ export default function FileUploadAndTable() {
           </div>
         </div>
       </div>
+      {/* <Button
+        className="mt-4 bg-blue-500 hover:bg-blue-400"
+        onClick={async () => {
+          const selectedContacts = getSelectedContacts();
+
+          if (selectedContacts.length === 0) {
+            alert("Please select at least one contact");
+            return;
+          }
+
+          try {
+            const response = await fetch("/api/send-email", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                recipients: selectedContacts.map((c) => ({
+                  firstName: c.firstName,
+                  lastName: c.lastName,
+                  email: c.email,
+                  template: "marketing",
+                })),
+              }),
+            });
+
+            const result = await response.json();
+            console.log(result);
+            alert(
+              `Emails sent: ${
+                result.logs.filter((l: any) => l.status === "SENT").length
+              }`
+            );
+          } catch (err) {
+            console.error(err);
+            alert("Failed to send emails");
+          }
+        }}
+      >
+        Send Emails
+      </Button> */}
     </div>
   );
 }
