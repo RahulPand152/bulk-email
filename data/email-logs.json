@@ -1663,6 +1663,40 @@
           "timestamp": "2026-01-05T04:26:47.291Z"
         }
       ]
+    },
+    {
+      "id": "log_1767591384642",
+      "subject": "Welcome to our Kaamhubs office",
+      "sentAt": "2026-01-05T05:36:24.642Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "7e299c4e-a33c-47ec-a700-e06074651e86",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Welcome to our Kaamhubs office",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T05:36:23.796Z"
+        },
+        {
+          "id": "0421b0e0-2058-44d5-a128-ef7dff412224",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Welcome to our Kaamhubs office",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T05:36:24.334Z"
+        },
+        {
+          "id": "b2e3213f-0133-4fb2-8236-b0a3086a2f2f",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Welcome to our Kaamhubs office",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T05:36:24.639Z"
+        }
+      ]
     }
   ]
 }
