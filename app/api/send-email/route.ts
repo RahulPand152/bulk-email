@@ -58,8 +58,7 @@ export async function POST(req: Request) {
               subject: customSubject,
               html: `<div style="font-family: sans-serif; line-height: 1.6; color: #111;">
       <!-- Greeting -->
-      <p>Dear ${recipient.firstName} ${recipient.lastName},</p>
-     <img src="kaamhubs/logo_final.webp" alt="Kaamhubs Logo" width="200" height="100" />
+      <p>Dear ${recipient.firstName} ${recipient.lastName},</p> 
       <div > ${customBody} </div> 
       <p style="margin-top: 20px item-center">
         <a href="https://kaamhubs.com" 

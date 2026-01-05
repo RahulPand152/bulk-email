@@ -1527,6 +1527,142 @@
           "timestamp": "2026-01-04T09:19:30.499Z"
         }
       ]
+    },
+    {
+      "id": "log_1767586912163",
+      "subject": "Welcome to Kaamhubs",
+      "sentAt": "2026-01-05T04:21:52.163Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "ab125ce6-bd9f-455c-9b58-23558dbeed28",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:21:51.832Z"
+        },
+        {
+          "id": "bfaba0a0-3152-491b-8188-b56ffe15d2aa",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:21:52.019Z"
+        },
+        {
+          "id": "7346ecec-64fa-45c1-b7e6-c45727ef275c",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:21:52.160Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767587042683",
+      "subject": "Welcome to Kaamhubs",
+      "sentAt": "2026-01-05T04:24:02.683Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "76842a3f-7b39-4959-936b-bc097ee25c81",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:24:02.329Z"
+        },
+        {
+          "id": "19d36f16-1ee1-48c9-a12e-99a9aa6f213f",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:24:02.515Z"
+        },
+        {
+          "id": "3d0a43c4-36bd-4691-9ab3-007583bba908",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:24:02.681Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767587167601",
+      "subject": "welcome to Kaamhubs",
+      "sentAt": "2026-01-05T04:26:07.601Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "c44020b6-bbe4-421e-aefd-e7b1f7acfbce",
+          "to": "panditchandan343@gmail.com",
+          "subject": "welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:26:06.747Z"
+        },
+        {
+          "id": "f8ad07f5-bc89-4239-a812-0128bafb3f50",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:26:06.900Z"
+        },
+        {
+          "id": "9d026cd7-7b59-45b4-b543-ebe0f49db152",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:26:07.599Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767587207293",
+      "subject": "welcome to Kaamhubs",
+      "sentAt": "2026-01-05T04:26:47.293Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "471d8036-50f4-4985-a63a-423554331014",
+          "to": "panditchandan343@gmail.com",
+          "subject": "welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:26:46.998Z"
+        },
+        {
+          "id": "dfae70bd-4a31-48dd-80a7-39dd5ee74de9",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:26:47.110Z"
+        },
+        {
+          "id": "321972c1-2b82-4767-b67c-5fbf4f812eb6",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "welcome to Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-05T04:26:47.291Z"
+        }
+      ]
     }
   ]
 }

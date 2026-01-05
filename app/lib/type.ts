@@ -3,6 +3,7 @@ export type EmailStatus = 'SENT' | 'FAILED'
 export interface EmailRecipientLog {
   email: string
   status: EmailStatus
+  error?:string
 }
 
 export interface EmailLog {
