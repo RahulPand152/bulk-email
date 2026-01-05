@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import MultiStepForm from "./components/multi-step-navigation";
 
 export default function Home() {
@@ -8,20 +8,6 @@ export default function Home() {
       <div className="text-center mb-4 ">
         <MultiStepForm />
       </div>
-      
-
-      {/* Description Text */}
-      {/* <div className="text-sm md:text-lg text-center px-2 py-2 mb-6">
-        <button
-          onClick={async () => {
-            await fetch("/api/send-email", { method: "POST" });
-            alert("Email sent!");
-          }}
-        >
-          Send Email
-        </button>
-        
-      </div> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import * as React from "react";
 import "./styles/index.css";
 
@@ -67,7 +67,7 @@ export const MinimalTiptapEditor = React.forwardRef<
       ref={ref}
       className={cn(
         "flex h-auto min-h-64 w-full flex-col rounded-md border border-input shadow-sm  ",
-        className,
+        className
       )}
     >
       <Toolbar editor={editor} />

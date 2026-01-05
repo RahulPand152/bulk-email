@@ -51,6 +51,1482 @@
       "status": "SENT",
       "error": null,
       "timestamp": "2025-12-31T07:30:04.994Z"
+    },
+    {
+      "id": "8d5e4789-0370-4746-b899-48a26db547d2",
+      "to": "rahultoprove982687@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:49:27.513Z"
+    },
+    {
+      "id": "dff22d3a-54c1-4899-9231-185f5e5e78b6",
+      "to": "panditchandan343@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:49:27.670Z"
+    },
+    {
+      "id": "e603d5e8-b3e9-4833-9a5d-9c5c1aa6162c",
+      "to": "panditchandan343@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:50:08.627Z"
+    },
+    {
+      "id": "ba301f39-a1ff-41ef-ab4a-bdf94845acf8",
+      "to": "rahultoprove982687@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:50:10.657Z"
+    },
+    {
+      "id": "ac7400dd-a868-4add-ad74-fe602d573130",
+      "to": "panditchandan343@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:53:38.002Z"
+    },
+    {
+      "id": "ae7a4af0-29c4-43d1-9926-1cbb1e3833b0",
+      "to": "rahultoprove982687@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:53:38.566Z"
+    },
+    {
+      "id": "a79ec58f-b415-4dd6-8677-bef2cd3b4398",
+      "to": "rahultoprove982687@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:53:38.859Z"
+    },
+    {
+      "id": "909491e1-89e6-477d-994e-93c1b20941ae",
+      "to": "panditchandan343@gmail.com",
+      "template": "marketing",
+      "subject": "Welcome to Kaamhubs!",
+      "status": "SENT",
+      "error": null,
+      "timestamp": "2026-01-01T09:53:39.084Z"
+    },
+    {
+      "id": "log_1767329968501",
+      "subject": "Hurrry up Open vacany",
+      "sentAt": "2026-01-02T04:59:28.501Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "feec7e68-370d-456b-9ea2-7881a9190777",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Hurrry up Open vacany",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T04:59:28.393Z"
+        },
+        {
+          "id": "32e6021e-08fd-4017-9c81-4838d855191e",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Hurrry up Open vacany",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T04:59:28.499Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767330074922",
+      "subject": "Hurrry up Open vacany",
+      "sentAt": "2026-01-02T05:01:14.922Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "1d17d72e-fb94-4396-8a3b-77c3213d9117",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Hurrry up Open vacany",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:01:11.193Z"
+        },
+        {
+          "id": "e933ab17-9beb-491c-87a1-74fea6b0081c",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Hurrry up Open vacany",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:01:14.920Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767330082730",
+      "subject": "Hurrry up Open vacany",
+      "sentAt": "2026-01-02T05:01:22.730Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "909a663d-337b-43b5-a552-87d832b8b7d4",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Hurrry up Open vacany",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:01:21.023Z"
+        },
+        {
+          "id": "f7507eaa-46e2-4f4b-b499-0f73fe24eb96",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Hurrry up Open vacany",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:01:22.728Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767330786806",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-02T05:13:06.806Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "e289db13-c470-40aa-8e21-740004d53440",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:13:06.003Z"
+        },
+        {
+          "id": "3aa32ea1-4c50-4123-974d-4d9c97467560",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:13:06.804Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767330815817",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-02T05:13:35.817Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "8ae69efd-ed9b-45b0-842b-4baffa59bff6",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:13:35.669Z"
+        },
+        {
+          "id": "07bce568-50ad-4dc8-b84f-7bcc5d37f416",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:13:35.815Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767330916045",
+      "subject": "hurry up what are you need?",
+      "sentAt": "2026-01-02T05:15:16.045Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "e1df45a3-4898-4016-9f16-45a8d07ce943",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hurry up what are you need?",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:15:15.721Z"
+        },
+        {
+          "id": "4e8660a4-09c2-4bee-b2f5-b5c7dc406272",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hurry up what are you need?",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:15:16.043Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767331461212",
+      "subject": "hurryup vacany vacany vacancy",
+      "sentAt": "2026-01-02T05:24:21.212Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "df514c8a-4f66-4f46-92db-0a683ee26bd4",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hurryup vacany vacany vacancy",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:24:19.108Z"
+        },
+        {
+          "id": "7ef7320a-1343-47d8-8a1d-f71c27c0851f",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hurryup vacany vacany vacancy",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:24:21.210Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767331666739",
+      "subject": "hurryup vacany vacany vacancy",
+      "sentAt": "2026-01-02T05:27:46.739Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "c61f9c04-2e1a-4816-b6ff-63b277d7f7ed",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hurryup vacany vacany vacancy",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:27:43.075Z"
+        },
+        {
+          "id": "6dd3736b-6803-4b26-96b7-ea4620445c93",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hurryup vacany vacany vacancy",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:27:46.738Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767331726776",
+      "subject": "hurryup vacany vacany vacancy",
+      "sentAt": "2026-01-02T05:28:46.776Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "bdcaf174-b0a5-4311-919a-72259043a0f4",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hurryup vacany vacany vacancy",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:28:44.999Z"
+        },
+        {
+          "id": "6fa2d9ba-5aa7-4464-b088-62626ba013db",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hurryup vacany vacany vacancy",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:28:46.774Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767331813732",
+      "subject": "How are you ",
+      "sentAt": "2026-01-02T05:30:13.732Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "1586fbca-c02f-4605-bb20-37cf36b5bd37",
+          "to": "panditchandan343@gmail.com",
+          "subject": "How are you ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:30:13.587Z"
+        },
+        {
+          "id": "a3772a3a-ec5d-4f5c-9806-9929496f072d",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "How are you ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:30:13.730Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767331947117",
+      "subject": "How are you ",
+      "sentAt": "2026-01-02T05:32:27.117Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "7318fbe8-1e91-49d9-b74a-bc6de8d3651b",
+          "to": "panditchandan343@gmail.com",
+          "subject": "How are you ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:32:26.365Z"
+        },
+        {
+          "id": "9f791437-a969-4df8-8ac6-6229465317c4",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "How are you ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:32:27.115Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767332092734",
+      "subject": "hello How are you in it",
+      "sentAt": "2026-01-02T05:34:52.734Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "a94ef9c9-2779-468a-8156-1f8e868c40cb",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:34:52.584Z"
+        },
+        {
+          "id": "dcc91a48-cd5d-4040-a911-f0da84f7c4be",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:34:52.732Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767332274265",
+      "subject": "hello How are you in it",
+      "sentAt": "2026-01-02T05:37:54.265Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "49db0b9c-16e7-42cb-bb7a-40987149fbef",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:37:53.546Z"
+        },
+        {
+          "id": "4c952ea7-a6f5-4268-85f1-340a0fc99ab4",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:37:54.264Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767332558435",
+      "subject": "hello How are you in it",
+      "sentAt": "2026-01-02T05:42:38.435Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "3a1e77f8-980d-4713-af71-0c83d00ca09b",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:42:38.236Z"
+        },
+        {
+          "id": "08a65ab9-c8d8-41a5-8a2f-ad9103990fb1",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:42:38.432Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767332622472",
+      "subject": "hello How are you in it",
+      "sentAt": "2026-01-02T05:43:42.472Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "a51bef2e-14a2-4ce7-9d18-c37d89ced461",
+          "to": "panditchandan343@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:43:41.876Z"
+        },
+        {
+          "id": "fa09fb61-a7e1-4d1d-981e-1fcdf7224425",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "hello How are you in it",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:43:42.469Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767332961774",
+      "subject": "for dashin Offer in Kaamhubs ",
+      "sentAt": "2026-01-02T05:49:21.774Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "5b25f6aa-ec57-40aa-91c7-f64786d826cf",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "for dashin Offer in Kaamhubs ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:49:21.077Z"
+        },
+        {
+          "id": "c67b9cb6-3731-43e7-9d41-2737b2a1b0da",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "for dashin Offer in Kaamhubs ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:49:21.594Z"
+        },
+        {
+          "id": "05dc6317-5438-48ea-a0f8-0a9a1cb224ba",
+          "to": "panditchandan343@gmail.com",
+          "subject": "for dashin Offer in Kaamhubs ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T05:49:21.770Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767349856626",
+      "subject": "vvvvvvvvvv",
+      "sentAt": "2026-01-02T10:30:56.626Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "f8287a2d-bd50-4cf5-9852-370d4561e05d",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:55.224Z"
+        },
+        {
+          "id": "1ad0d778-3d90-4447-8cf5-9e14ca7982b1",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:55.692Z"
+        },
+        {
+          "id": "1e655e0c-4f5e-4cab-9179-4130d56a75e8",
+          "to": "panditchandan343@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:56.624Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767349857443",
+      "subject": "vvvvvvvvvv",
+      "sentAt": "2026-01-02T10:30:57.443Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "0ec76565-6c7c-476d-8ef0-bed605fe55c5",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:56.115Z"
+        },
+        {
+          "id": "59ad28a8-dbba-402d-ac6d-7957bcfe4c12",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:56.312Z"
+        },
+        {
+          "id": "daee670d-6e61-443f-9d58-1472570e1e17",
+          "to": "panditchandan343@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:57.441Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767349859447",
+      "subject": "vvvvvvvvvv",
+      "sentAt": "2026-01-02T10:30:59.447Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "41bf233f-d2a7-4496-a88c-8534bc0dc026",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:58.986Z"
+        },
+        {
+          "id": "8c211fcc-54be-4ddf-9312-5157867a160a",
+          "to": "panditchandan343@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:59.192Z"
+        },
+        {
+          "id": "57c2f104-663d-4d1b-95c6-6b1402c02943",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:30:59.445Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767350060489",
+      "subject": "vvvvvvvvvv",
+      "sentAt": "2026-01-02T10:34:20.489Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "f07163bf-4fbb-4aa1-90e4-1aed6c811e31",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:20.179Z"
+        },
+        {
+          "id": "bb8663ba-eb66-4805-8419-24afc9cdec05",
+          "to": "panditchandan343@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:20.310Z"
+        },
+        {
+          "id": "8ea84052-34e2-462b-b2ed-2f798efa2130",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:20.487Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767350069747",
+      "subject": "vvvvvvvvvv",
+      "sentAt": "2026-01-02T10:34:29.747Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "0bc51020-9bca-49b7-8ad9-579ec6950fac",
+          "to": "panditchandan343@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:29.289Z"
+        },
+        {
+          "id": "806b700f-103b-4d86-b5f3-8b78dba1ee4e",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:29.453Z"
+        },
+        {
+          "id": "4cb70280-c959-4a0c-8e1e-fac48c4f086f",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:29.745Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767350070139",
+      "subject": "vvvvvvvvvv",
+      "sentAt": "2026-01-02T10:34:30.139Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "6136d3a1-3c20-40d7-a781-c1c3c079aba3",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:29.006Z"
+        },
+        {
+          "id": "2602fa6d-6b3d-43aa-b490-1b0bc889ca8e",
+          "to": "panditchandan343@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:29.153Z"
+        },
+        {
+          "id": "e6946c9f-d3e0-4f30-9614-633b2861582f",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "vvvvvvvvvv",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:34:30.137Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767350133162",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-02T10:35:33.162Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "c1c4449c-4743-4edc-80b3-9489269ba4f4",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:35:32.286Z"
+        },
+        {
+          "id": "1a2a7b4f-406c-49c3-ae79-da2fce06fa51",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:35:32.456Z"
+        },
+        {
+          "id": "af6e9fa7-472c-466d-99c1-fa588eab8f6e",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:35:33.159Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767350134070",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-02T10:35:34.070Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "89f1623d-04d7-4ef7-b2f5-7aae3e39c5a0",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:35:33.451Z"
+        },
+        {
+          "id": "66f0c4c4-dc12-4d97-bfe1-8584b99e6f3f",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:35:33.711Z"
+        },
+        {
+          "id": "8e62a644-bb6e-4604-ae69-60d71ceaa0ee",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-02T10:35:34.069Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767500898031",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T04:28:18.031Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "331d01cd-3500-46cd-a6a5-8187b1cbba87",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T04:28:17.668Z"
+        },
+        {
+          "id": "7f80d246-de5d-46e5-8d82-9485ed29e511",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T04:28:17.789Z"
+        },
+        {
+          "id": "22602933-8bcc-424e-9652-e2e5334b9463",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T04:28:18.028Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767505810239",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T05:50:10.239Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "76e6a8d9-b787-48f6-a188-1107e7d5b1af",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:50:06.930Z"
+        },
+        {
+          "id": "194866a0-1479-44c9-b44f-6e8613f293b7",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:50:07.100Z"
+        },
+        {
+          "id": "aab897a6-f1d9-491d-aeaf-abcbd6ec0de4",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:50:10.237Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767506257460",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T05:57:37.460Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "fa5c3565-f8d9-43d0-8fd9-a56717010794",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:57:36.844Z"
+        },
+        {
+          "id": "77e7af79-9d9e-47fd-ba55-135085125005",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:57:37.176Z"
+        },
+        {
+          "id": "03dc3f81-bf8a-4c89-a906-34cbcb703a9a",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:57:37.458Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767506298344",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T05:58:18.344Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "3f459283-a262-4dd0-af41-2c14a8bc66e7",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:58:17.365Z"
+        },
+        {
+          "id": "84475581-8907-4699-b13d-00c232bfb242",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:58:17.558Z"
+        },
+        {
+          "id": "724b8310-ab73-48cf-a950-04fac78090e2",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T05:58:18.342Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767507027919",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T06:10:27.919Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "dbcb1800-6f29-4510-96ef-b2f8a4463ea3",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:10:27.628Z"
+        },
+        {
+          "id": "095b817f-2da0-48ab-a826-9273215cd819",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:10:27.792Z"
+        },
+        {
+          "id": "75efd513-d91f-4c5a-81f3-7bd3b1f3f030",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:10:27.917Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767507197742",
+      "subject": "we are looking for an intership ",
+      "sentAt": "2026-01-04T06:13:17.742Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "2fb605e2-f37b-4f03-91b2-9db86b5563da",
+          "to": "panditchandan343@gmail.com",
+          "subject": "we are looking for an intership ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:13:16.831Z"
+        },
+        {
+          "id": "e25b5953-ba34-4070-a0f9-a10c284bcb2f",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "we are looking for an intership ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:13:17.509Z"
+        },
+        {
+          "id": "c00646de-ea3a-45b2-9199-934025cbeb00",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "we are looking for an intership ",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:13:17.741Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767507791241",
+      "subject": "Do you  applied Kaamhubs",
+      "sentAt": "2026-01-04T06:23:11.241Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "4d6bc052-d221-4fc5-b6b8-521cf87971b2",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:23:10.998Z"
+        },
+        {
+          "id": "07795cae-8609-4fb1-99c7-c39db396d237",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:23:11.164Z"
+        },
+        {
+          "id": "bc34b48f-df6c-4031-a2a0-b38b10df53e8",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:23:11.239Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767507994104",
+      "subject": "Do you  applied Kaamhubs",
+      "sentAt": "2026-01-04T06:26:34.104Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "de7f7a63-b6a0-48b6-8b28-d7eb41c11d1c",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:26:33.326Z"
+        },
+        {
+          "id": "3b37b173-aa82-4929-a83e-bf82d8f414dd",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:26:33.917Z"
+        },
+        {
+          "id": "bbe858a4-ea8b-4be6-b03c-6f2d5e8a86ba",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:26:34.102Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767508153579",
+      "subject": "Do you  applied Kaamhubs",
+      "sentAt": "2026-01-04T06:29:13.579Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "63c93331-bb96-4cb3-a4a0-1530d8098df3",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:29:12.476Z"
+        },
+        {
+          "id": "6c3f369c-ed5c-4c8d-9953-5201e2a07025",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:29:12.749Z"
+        },
+        {
+          "id": "712bb54d-5f29-4252-a957-a56f21bc1b82",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:29:13.577Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767508348207",
+      "subject": "Do you  applied Kaamhubs",
+      "sentAt": "2026-01-04T06:32:28.207Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "b3335aea-2027-4476-9733-0c02e1bb57e6",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:32:27.199Z"
+        },
+        {
+          "id": "11e540c9-9ab1-4a95-98e9-e229e0ced6d2",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:32:27.528Z"
+        },
+        {
+          "id": "79eee059-e1ee-4e8e-8078-5cfbf9364203",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Do you  applied Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:32:28.206Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767508587535",
+      "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+      "sentAt": "2026-01-04T06:36:27.535Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "6fb3a9c2-dbaa-4acf-8c87-c53fcc34cc81",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:36:26.717Z"
+        },
+        {
+          "id": "b771118f-805b-41f6-92c0-cfdcc42fc86d",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:36:26.835Z"
+        },
+        {
+          "id": "255a10fd-546e-41f3-8204-6e4ea2eef9c3",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:36:27.532Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767509386512",
+      "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+      "sentAt": "2026-01-04T06:49:46.512Z",
+      "totalRecipients": 4,
+      "sent": 4,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "e0e9e06b-acb2-4d23-9d73-4ab27d0d5bb7",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:49:45.526Z"
+        },
+        {
+          "id": "2a6192c3-375f-4f3d-ade9-82756bf4a203",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:49:45.703Z"
+        },
+        {
+          "id": "af667bc9-e03a-422e-bd94-214d399d9ee0",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:49:45.832Z"
+        },
+        {
+          "id": "fed0df59-4a0e-451e-89dd-83fcf2d55be6",
+          "to": "shresta.maharjan@gmail.com",
+          "subject": "Discover Kaamhubs – Your Hub for Opportunities!",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T06:49:46.509Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767510459057",
+      "subject": "ffff",
+      "sentAt": "2026-01-04T07:07:39.057Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "b8d8f163-af0f-49aa-ab4e-e5dab9fbe736",
+          "to": "panditchandan343@gmail.com",
+          "subject": "ffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:07:38.513Z"
+        },
+        {
+          "id": "5ffa3895-b153-41d9-8d1c-744c1fd79dc3",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "ffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:07:38.792Z"
+        },
+        {
+          "id": "e92704ce-18c0-4dcb-a4a9-d4e008d55b85",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "ffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:07:39.054Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767510513166",
+      "subject": "fffffffffff",
+      "sentAt": "2026-01-04T07:08:33.166Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "2e8fc585-642b-43ca-b53e-415fbea7b90f",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "fffffffffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:08:33.164Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767510833251",
+      "subject": "ddddddddd",
+      "sentAt": "2026-01-04T07:13:53.251Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "52c529d9-a371-4c32-9f61-1754176e3602",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "ddddddddd",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:13:53.248Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511196833",
+      "subject": "ffffff",
+      "sentAt": "2026-01-04T07:19:56.833Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "177027ee-bbdc-4191-af30-b1ae52361d26",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "ffffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:19:56.829Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511241114",
+      "subject": "ffffff",
+      "sentAt": "2026-01-04T07:20:41.114Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "f053f816-1b91-4da1-9176-7eb739d418d3",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "ffffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:20:41.111Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511266547",
+      "subject": "ffffff",
+      "sentAt": "2026-01-04T07:21:06.547Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "36b4d31b-b909-434c-be2a-a7b802b64448",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "ffffff",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:21:06.545Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511294082",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T07:21:34.082Z",
+      "totalRecipients": 2,
+      "sent": 2,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "06c1c8dd-25c4-494d-99f9-52a86b597f74",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:21:34.055Z"
+        },
+        {
+          "id": "d7b045ed-95da-4c99-8aeb-1955475de63a",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:21:34.080Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511337833",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T07:22:17.833Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "4ae0181e-9346-4cdd-a33d-d07862dd34d7",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:22:17.831Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511436284",
+      "subject": "DDDD",
+      "sentAt": "2026-01-04T07:23:56.284Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "b31d290b-f863-4723-bbe8-869d96007975",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "DDDD",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:23:56.281Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767511648916",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T07:27:28.916Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "fbdc0a0b-136a-43a1-a29a-bd4e6202a646",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:27:28.914Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767512281208",
+      "subject": "cccc",
+      "sentAt": "2026-01-04T07:38:01.208Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "58f10f42-3ce5-4682-9b02-449cd6b478b8",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "cccc",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:38:01.207Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767512399087",
+      "subject": "ccccccc",
+      "sentAt": "2026-01-04T07:39:59.087Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "3726eccc-552d-4b25-a63e-708f09b45d39",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "ccccccc",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T07:39:59.085Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767518086174",
+      "subject": "Oh! something went wrong",
+      "sentAt": "2026-01-04T09:14:46.174Z",
+      "totalRecipients": 3,
+      "sent": 3,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "c631940d-c3fa-454e-94d2-1d8aa8808e3f",
+          "to": "rahulasus982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T09:14:45.832Z"
+        },
+        {
+          "id": "b72e6d0b-e3f5-4f24-b60e-9805521c4a60",
+          "to": "panditchandan343@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T09:14:46.039Z"
+        },
+        {
+          "id": "05685c8d-2797-4d99-b7eb-c026936dd6ef",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Oh! something went wrong",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T09:14:46.174Z"
+        }
+      ]
+    },
+    {
+      "id": "log_1767518370502",
+      "subject": "Kaamhubs",
+      "sentAt": "2026-01-04T09:19:30.502Z",
+      "totalRecipients": 1,
+      "sent": 1,
+      "failed": 0,
+      "recipients": [
+        {
+          "id": "65004226-b753-4df5-b17a-b774dd5ddbb1",
+          "to": "rahultoprove982687@gmail.com",
+          "subject": "Kaamhubs",
+          "status": "SENT",
+          "error": null,
+          "timestamp": "2026-01-04T09:19:30.499Z"
+        }
+      ]
     }
   ]
 }

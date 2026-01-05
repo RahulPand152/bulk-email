@@ -1,179 +1,225 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import { MinimalTiptapEditor } from "../components/minimal-tiptap";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-
-const templates = [
-  {
-    id: "marketing_email",
-    name: "Marketing Email",
-    subject: "Grow Your Career with {company}",
-    body: "<p>Hello! {company} helps professionals, freelancers, and businesses connect with meaningful opportunities. Explore new projects and grow your career today!</p>",
-  },
-  {
-    id: "promotion_offer",
-    name: "Promotional Offer",
-    subject: "Exclusive Offer for You at {company}!",
-    body: "<p>Hi there! Use code <strong>KAAM50</strong> to get 50% off {company} services. Hurry, limited time offer!</p>",
-  },
-  {
-    id: "advertisement",
-    name: "Advertisement Email",
-    subject: "Discover {company} Opportunities Today",
-    body: "<p>{company} connects you with businesses and professionals worldwide. Find new opportunities, grow your network, and succeed faster!</p>",
-  },
-];
-
+import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { Loader2 } from "lucide-react";
+
+type EmailRecipient = {
+  email: string;
+  firstName: string;
+  lastName?: string;
+};
+
 export default function ComposePage() {
-  const [selectedTemplate, setSelectedTemplate] = useState(templates[0].id);
-  const [subject, setSubject] = useState(templates[0].subject);
-  const [body, setBody] = useState(templates[0].body);
-  const handleTemplateChange = (value: string) => {
-    setSelectedTemplate(value);
-    const template = templates.find((t) => t.id === value);
-    if (template) {
-      setSubject(template.subject);
-      setBody(template.body);
+  const [recipients, setRecipients] = useState<EmailRecipient[]>([]);
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<{
+    subject?: string;
+    body?: string;
+  }>({});
+
+  useEffect(() => {
+    const stored = localStorage.getItem("email_recipients");
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored) as EmailRecipient[];
+        if (Array.isArray(parsed)) {
+          setRecipients(parsed);
+        }
+      } catch (e) {
+        console.error("Failed to parse recipients", e);
+      }
+    }
+  }, []);
+
+  // const replaceVariables = (template: string, recipient: EmailRecipient) => {
+  //   return template
+  //     .replace(/\{firstName\}/g, recipient.firstName || "")
+  //     .replace(/\{lastName\}/g, recipient.lastName || "")
+  //     .replace(/\{email\}/g, recipient.email || "")
+  //     .replace(/\{contactNumber\}/g, "982626262626")
+  //     .replace(/\{ctaLink\}/g, "https://kaamhubs.com");
+  // };
+
+  const handleSendEmails = async () => {
+    if (isLoading) return;
+
+    const newErrors: typeof errors = {};
+
+    if (!subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    const cleanBody = body
+      .replace(/<(.|\n)*?>/g, "")
+      .replace(/&nbsp;/g, "")
+      .trim();
+
+    if (!cleanBody) {
+      newErrors.body = "Email body is required";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+
+    if (recipients.length === 0) {
+      alert("No recipients selected");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject,
+          body,
+          recipients,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error || "Failed to send emails");
+      }
+
+      // alert(`Emails sent to ${recipients.length} recipients`);
+    } catch (err) {
+      console.error(err);
+      alert("Error sending emails");
+    } finally {
+      setIsLoading(false);
     }
   };
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6  ">
+    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
       {/* Header */}
       <div className="space-y-2">
-        <h1 className="text-2xl sm:text-3xl font-bold">
-          Compose Urgent Notice
-        </h1>
+        <h1 className="text-2xl sm:text-3xl font-bold">Compose Bulk Email</h1>
         <p className="text-gray-300 text-sm sm:text-base">
-          Create and customize your message for the selected audience
+          Write a custom subject and message for your recipients.
         </p>
       </div>
-      {/* Tabs for Compose, Recipients, Review */}
+
       <Tabs defaultValue="compose" className="w-full">
-        <TabsList className="flex w-full md:w-full justify-between  mb-4">
+        <TabsList className="flex w-full md:w-full justify-between mb-4">
           <TabsTrigger
             value="compose"
-            className="md:flex-1 text-left md:text-center py-2 md:py-3  data-[state=active]:text-blue-500"
+            className="md:flex-1 text-left md:text-center py-2 md:py-3 data-[state=active]:text-blue-500"
           >
-            <Mail className="inline mr-2 mt-1   data-[state=active]:text-blue-500" />
+            <Mail className="inline mr-2 mt-1" />
             Email
           </TabsTrigger>
           <TabsTrigger
-            value="recipients"
-            className="md:flex-1 text-left md:text-center py-2 md:py-3  data-[state=active]:text-blue-500"
+            value="SMS"
+            className="md:flex-1 text-left md:text-center py-2 md:py-3 data-[state=active]:text-blue-500"
           >
-            <MessageSquare className="inline mr-2 mt-1  data-[state=active]:text-blue-500" />
+            <MessageSquare className="inline mr-2 mt-1" />
             SMS
           </TabsTrigger>
         </TabsList>
 
         {/* Compose Tab */}
-
         <TabsContent value="compose" className="space-y-4">
-          {/* Dropdown for Templates */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-            <Label htmlFor="template" className="font-semibold sm:w-32">
-              Template
-            </Label>
-
-            <Select
-              value={selectedTemplate}
-              onValueChange={handleTemplateChange}
-            >
-              <SelectTrigger className="w-full sm:w-64">
-                <SelectValue placeholder="Select a template" />
-              </SelectTrigger>
-
-              <SelectContent>
-                {templates.map((t) => (
-                  <SelectItem key={t.id} value={t.id}>
-                    {t.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Subject Line */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          {/* Subject */}
+          <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
             <Label htmlFor="subject" className="font-semibold sm:w-32">
-              Subject Line
+              Subject
             </Label>
 
-            <Input
-              id="subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              className="w-full sm:w-96"
-            />
+            <div className="w-full sm:w-96">
+              <Input
+                id="subject"
+                value={subject}
+                onChange={(e) => {
+                  setSubject(e.target.value);
+                  setErrors((prev) => ({ ...prev, subject: undefined }));
+                }}
+                className={`w-full ${
+                  errors.subject
+                    ? "border-red-500 focus-visible:ring-red-500"
+                    : ""
+                }`}
+              />
+
+              {errors.subject && (
+                <p className="text-sm text-red-500 mt-1">{errors.subject}</p>
+              )}
+            </div>
           </div>
+
+          {/* Email Body */}
+          <div className="mt-4">
+            <Label className="font-semibold mb-2">Email Body</Label>
+
+            <div
+              className={`rounded-md ${
+                errors.body
+                  ? "border border-red-500"
+                  : "border border-transparent"
+              }`}
+            >
+              <MinimalTiptapEditor
+                value={body}
+                onChange={(val) => {
+                  if (typeof val === "string") {
+                    setBody(val);
+                    setErrors((prev) => ({ ...prev, body: undefined }));
+                  }
+                }}
+              />
+            </div>
+
+            {errors.body && (
+              <p className="text-sm text-red-500 mt-1">{errors.body}</p>
+            )}
+          </div>
+
+          {/* Recipients info */}
+          <p className="text-sm text-gray-500">
+            Sending to <strong>{recipients.length}</strong> recipient(s)
+          </p>
+
+          {/* Send button */}
+          <Button
+            className="mt-4 bg-blue-500 hover:bg-blue-400 disabled:opacity-60"
+            onClick={handleSendEmails}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <span className="flex items-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Sending...
+              </span>
+            ) : (
+              "Send Bulk Emails"
+            )}
+          </Button>
         </TabsContent>
 
         {/* Recipients Tab */}
-        <TabsContent value="recipients" className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-            <Label htmlFor="template" className="font-semibold sm:w-32">
-              Template SMS
-            </Label>
-
-            <Select defaultValue="maintenance">
-              <SelectTrigger className="w-full sm:w-64">
-                <SelectValue placeholder="Select a template" />
-              </SelectTrigger>
-
-              <SelectContent>
-                <SelectItem value="maintenance">Template 1</SelectItem>
-                <SelectItem value="update">Template 2</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </TabsContent>
-
-        {/* Review Tab */}
-        <TabsContent value="review" className="space-y-4">
-          {/* Dropdown for Templates */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
-            <Label htmlFor="template">Template</Label>
-            <Select defaultValue="maintenance" name="template">
-              <SelectTrigger>
-                <SelectValue placeholder="Select a template" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="maintenance">Template 1</SelectItem>
-                <SelectItem value="update">Template 2</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Subject Line */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
-            <Label htmlFor="subject">Subject Line</Label>
-            <Input
-              id="subject"
-              defaultValue="Urgent: Scheduled System Maintenance"
-              className="w-full sm:w-96"
-            />
-          </div>
+        <TabsContent value="SMS" className="space-y-4">
+          <Label className="font-semibold mb-2">SMS</Label>
+          <MinimalTiptapEditor />
         </TabsContent>
       </Tabs>
-      {/* Rich Text Editor */}
-      <div className="mt-4">
-        <MinimalTiptapEditor
-          value={body}
-          onChange={(val) => setBody(val)}
-          className="w-full "
-        />
-      </div>
     </div>
   );
 }

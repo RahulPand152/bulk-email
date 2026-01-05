@@ -1,27 +1,12 @@
-import { render } from "@react-email/components";
 import nodemailer from "nodemailer";
-import KaamhubsMarketingEmail from "@/emails/join";
-import KaamhubsFeedbackEmail from "@/emails/promotion";
-import { initEmailLogDB } from "@/app/lib/db";
+import db from "@/app/lib/db"; // your lowdb instance
 
 export const runtime = "nodejs";
 
-// Map templates to component + subject
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const templatesMap: Record<string, { component: any; subject: string }> = {
-  marketing: {
-    component: KaamhubsMarketingEmail,
-    subject: "Welcome to Kaamhubs!",
-  },
-  feedback: {
-    component: KaamhubsFeedbackEmail,
-    subject: "Give feedback to Kaamhubs!",
-  },
-};
-
 export async function POST(req: Request) {
   try {
-    const { recipients } = await req.json();
+    const body = await req.json();
+    const { recipients, subject: customSubject, body: customBody } = body;
 
     if (!recipients || recipients.length === 0) {
       return Response.json(
@@ -29,113 +14,119 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-
-    // Limit batch size
     if (recipients.length > 50) {
       return Response.json(
         { error: "Max 50 recipients allowed per batch" },
         { status: 400 }
       );
     }
+    if (!customSubject || !customBody) {
+      return Response.json(
+        { error: "Subject and body are required" },
+        { status: 400 }
+      );
+    }
 
-    // Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS, // Use App Password
+        pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Ensure LowDB initialized
-    await initEmailLogDB();
-
     const sendLogs: Array<{
-      id: number;
+      id: string;
       to: string;
-      template: string;
       subject: string;
-      status: string;
+      status: "SENT" | "FAILED";
       error: string | null;
       timestamp: string;
     }> = [];
 
-    const emailPromises = recipients.map(
-      async (recipient: {
-        email: string;
-        firstName: string;
-        lastName?: string;
-        contactNumber?: string;
-        template?: string;
-      }) => {
-        // Select template + subject
-        
-        const requestedTemplate =
-          recipient.template?.toLowerCase() || "feedback";
-        const templateData =
-          templatesMap[requestedTemplate] || templatesMap["feedback"];
-        const SelectedTemplate = templateData.component;
-        const subject = templateData.subject;
+    await Promise.all(
+      recipients.map(
+        async (recipient: {
+          email: string;
+          firstName: string;
+          lastName?: string;
+        }) => {
+          try {
+            await transporter.sendMail({
+              from: `"Kaamhubs" <${process.env.EMAIL_USER}>`,
+              bcc: recipient.email,
+              subject: customSubject,
+              html: `<div style="font-family: sans-serif; line-height: 1.6; color: #111;">
+      <!-- Greeting -->
+      <p>Dear ${recipient.firstName} ${recipient.lastName},</p>
+     <img src="kaamhubs/logo_final.webp" alt="Kaamhubs Logo" width="200" height="100" />
+      <div > ${customBody} </div> 
+      <p style="margin-top: 20px item-center">
+        <a href="https://kaamhubs.com" 
+           style="
+             display: inline-block;
+             padding: 12px 24px;
+             background-color: #1D4ED8;
+             color: white;
+             text-decoration: none;
+             border-radius: 6px;
+             font-weight: bold;
+           "
+        >
+          Visit Kaamhubs
+        </a>
+      </p>
 
-        // Render HTML
-        const emailHtml = await render(
-          SelectedTemplate({
-            firstName: recipient.firstName,
-            lastName: recipient.lastName,
-            email: "Kaamhubs@supportgmail.com",
-            contactNumber: "+977-9898989898",
-            ctaLink: "https://kaamhubs.com",
-          })
-        );
+      <!-- Footer -->
+      <p style="margin-top: 20px;">Regards,<br/>Kaamhubs &lt;Kaamhubs@support.com&gt;</p>
+    </div>
+  `, //
+            });
 
-        try {
-          // Send email
-          await transporter.sendMail({
-            from: `"Kaamhubs" <${process.env.EMAIL_USER}>`,
-            bcc: recipient.email,
-            subject,
-            html: emailHtml,
-            text: emailHtml.replace(/<[^>]+>/g, ""),
-          });
-
-          // Log success
-          const logEntry = {
-            id: Date.now() + Math.random(),
-            to: recipient.email,
-            template: recipient.template,
-            subject,
-            status: "SENT",
-            error: null,
-            timestamp: new Date().toISOString(),
-          };
-          sendLogs.push(logEntry);
-          return logEntry;
-        } catch (err) {
-          // Log failure
-          const logEntry = {
-            id: Date.now() + Math.random(),
-            to: recipient.email,
-            template,
-            subject,
-            status: "FAILED",
-            error: err instanceof Error ? err.message : String(err),
-            timestamp: new Date().toISOString(),
-          };
-          sendLogs.push(logEntry);
-          return logEntry;
+            sendLogs.push({
+              id: crypto.randomUUID(),
+              to: recipient.email,
+              subject: customSubject,
+              status: "SENT",
+              error: null,
+              timestamp: new Date().toISOString(),
+            });
+          } catch (err) {
+            sendLogs.push({
+              id: crypto.randomUUID(),
+              to: recipient.email,
+              subject: customSubject,
+              status: "FAILED",
+              error: err instanceof Error ? err.message : String(err),
+              timestamp: new Date().toISOString(),
+            });
+          }
         }
-      }
+      )
     );
 
-    await Promise.all(emailPromises);
+    // Persist logs to lowdb
+    await db.read();
+    db.data!.emailLogs = db.data!.emailLogs || [];
+    db.data!.emailLogs.push({
+      id: `log_${Date.now()}`,
+      subject: customSubject,
+      sentAt: new Date().toISOString(),
+      totalRecipients: recipients.length,
+      sent: sendLogs.filter((s) => s.status === "SENT").length,
+      failed: sendLogs.filter((s) => s.status === "FAILED").length,
+      recipients: sendLogs,
+    });
+    await db.write();
 
     return Response.json({ success: true, logs: sendLogs });
   } catch (error) {
     console.error("Bulk email failed:", error);
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown error occurred";
     return Response.json(
-      { success: false, error: errorMessage },
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Unknown error",
+      },
       { status: 500 }
     );
   }
