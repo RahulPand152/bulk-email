@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import jwt from "jsonwebtoken"
 
-const EMAILS = process.env.WHITELISTED_EMAILS!.split(',')
+const EMAILS = process.env.WHITELISTED_EMAILS!
 const PASSWORD = process.env.WHITELISTED_PASSWORD!
 const JWT_SECRET = process.env.JWT_SECRET!
 
