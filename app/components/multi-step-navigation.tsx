@@ -33,7 +33,7 @@ export default function MultiStepForm() {
         {/* Step container */}
         <div className="relative flex justify-between items-center">
           {/* Background line */}
-          <div className="absolute top-5 left-5 right-5 h-1 bg-gray-300  rounded-full" />
+          <div className="absolute top-5 left-5 right-5 h-1 bg-gray-300   rounded-full" />
 
           {/* Progress line */}
           <div
@@ -55,7 +55,7 @@ export default function MultiStepForm() {
                       ? "bg-blue-500  border-blue-500"
                       : isCompleted
                       ? "bg-blue-300  border-blue-300"
-                      : "bg-gray-100 border-gray-300 dark:border-gray-600"
+                      : "bg-gray-100 dark:bg-black border-gray-300  dark:border-gray-600"
                   }`}
                 >
                   {isCompleted ? "✓" : stepNumber}
@@ -75,7 +75,7 @@ export default function MultiStepForm() {
       </div>
 
       {/* Step Content */}
-      <div className=" rounded-lg p-6 shadow-inner">
+      <div className=" rounded-lg p-6 ">
         {step === 1 && (
           <div className="space-y-4">
             <h2 className="font-semibold text-lg mb-2">Step 1: Import</h2>

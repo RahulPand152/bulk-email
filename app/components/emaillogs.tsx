@@ -131,7 +131,7 @@ export default function EmailLogsTable() {
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="text-start px-4 py-3 text-gray-700 font-semibold"
+                    className="text-start px-4 py-3 text-gray-700  dark:text-gray-200 font-semibold"
                   >
                     {flexRender(
                       header.column.columnDef.header,
@@ -147,7 +147,7 @@ export default function EmailLogsTable() {
             {table.getRowModel().rows.map((row) => (
               <tr
                 key={row.id}
-                className="hover:bg-gray-100 transition-colors rounded-lg"
+                className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-lg"
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="px-4 py-2 text-start">
