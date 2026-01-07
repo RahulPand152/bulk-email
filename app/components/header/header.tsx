@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,15 +13,29 @@ import { useTheme } from "next-themes";
 
 export default function Header() {
   const { setTheme } = useTheme();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      const res = await fetch("/api/logout", { method: "POST" });
+      const data = await res.json();
+
+      if (data.success) {
+        router.push("/");
+      } else {
+        alert("Logout failed: " + data.message);
+      }
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
   return (
-    <header className="flex items-center  justify-between shadow-sm px-6 py-3  fixed top-0 left-0 w-full z-50">
+    <header className="flex items-center justify-between shadow-sm px-6 py-3 fixed top-0 left-0 w-full z-50 bg-white dark:bg-black  bg-opacity-70">
       {/* LEFT SIDE */}
       <div className="text-lg font-bold">Bulk System</div>
 
       {/* RIGHT SIDE */}
       <div className="flex items-center gap-4">
-       
-
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
@@ -50,7 +65,12 @@ export default function Header() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+            <DropdownMenuItem
+              className="text-red-500 hover:!text-red-700 focus:!text-red-700 bg-transparent"
+              onClick={handleLogout}
+            >
+              Logout
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

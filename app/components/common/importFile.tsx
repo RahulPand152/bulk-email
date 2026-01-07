@@ -213,9 +213,9 @@ export default function FileUploadAndTable({
   };
 
   return (
-    <div className=" border-gray-300   rounded-xl p-4 sm:p-6 text-center space-y-4 ">
+    <div className="    rounded-xl p-4 sm:p-6 text-center space-y-4 ">
       {/* File Upload Header */}
-      <div className=" border-gray-300  rounded-xl p-4 sm:p-6  space-y-4 shadow-sm">
+      <div className="rounded-xl p-4 sm:p-6  space-y-4 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 ">
           <div className="flex flex-col space-y-1 text-left">
             <h2 className="font-semibold text-base sm:text-lg">
@@ -249,7 +249,7 @@ export default function FileUploadAndTable({
           accept=".csv,.xlsx"
         />
         <div
-          className="p-6 border border-dashed  shadow-sm rounded-md cursor-pointer hover:bg-gray-100 transition-colors"
+          className="p-6 border border-dashed  shadow-sm rounded-md cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           onClick={handleBrowseClick}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => {
