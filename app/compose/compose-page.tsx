@@ -109,48 +109,52 @@ export default function ComposePage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
-      {/* Header */}
-      <div className="space-y-2">
-        <h1 className="text-2xl sm:text-3xl font-bold">Compose Bulk Email</h1>
-        <p className="text-gray-300 text-sm sm:text-base">
+    <div className="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-6 space-y-6">
+      <div className="space-y-1 sm:space-y-2 text-center sm:text-left">
+        <h1 className="text-xl sm:text-3xl font-bold">Compose Bulk Email</h1>
+        <p className="text-xs sm:text-base text-gray-300">
           Write a custom subject and message for your recipients.
         </p>
       </div>
 
       <Tabs defaultValue="compose" className="w-full">
-        <TabsList className="flex w-full md:w-full justify-between mb-4">
+        <TabsList className="flex w-full rounded-lg overflow-hidden border">
           <TabsTrigger
             value="compose"
-            className="md:flex-1 text-left md:text-center py-2 md:py-3 data-[state=active]:text-blue-500"
+            className="flex-1 py-2 sm:py-3 text-sm sm:text-base flex items-center justify-center
+                   data-[state=active]:bg-blue-50 data-[state=active]:text-blue-500"
           >
-            <Mail className="inline mr-2 mt-1" />
+            <Mail className="h-4 w-4 mr-2" />
             Email
           </TabsTrigger>
+
           <TabsTrigger
             value="SMS"
-            className="md:flex-1 text-left md:text-center py-2 md:py-3 data-[state=active]:text-blue-500"
+            className="flex-1 py-2 sm:py-3 text-sm sm:text-base flex items-center justify-center
+                   data-[state=active]:bg-blue-50 data-[state=active]:text-blue-500"
           >
-            <MessageSquare className="inline mr-2 mt-1" />
+            <MessageSquare className="h-4 w-4 mr-2" />
             SMS
           </TabsTrigger>
         </TabsList>
 
-        {/* Compose Tab */}
-        <TabsContent value="compose" className="space-y-4">
+        <TabsContent value="compose" className="space-y-4 sm:space-y-5">
           {/* Subject */}
-          <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-            <Label htmlFor="subject" className="font-semibold sm:w-32">
+          <div className="flex flex-col sm:grid sm:grid-cols-[120px_1fr] gap-2 sm:gap-4">
+            <Label
+              htmlFor="subject"
+              className="font-semibold text-sm sm:text-base"
+            >
               Subject
             </Label>
 
-            <div className="w-full sm:w-96">
+            <div className="w-full sm:max-w-lg">
               <Input
                 id="subject"
                 value={subject}
                 onChange={(e) => {
                   setSubject(e.target.value);
-                  setErrors((prev) => ({ ...prev, subject: undefined }));
+                  setErrors((p) => ({ ...p, subject: undefined }));
                 }}
                 className={`w-full ${
                   errors.subject
@@ -158,16 +162,19 @@ export default function ComposePage() {
                     : ""
                 }`}
               />
-
               {errors.subject && (
-                <p className="text-sm text-red-500 mt-1">{errors.subject}</p>
+                <p className="text-xs sm:text-sm text-red-500 mt-1">
+                  {errors.subject}
+                </p>
               )}
             </div>
           </div>
 
           {/* Email Body */}
-          <div className="mt-4">
-            <Label className="font-semibold mb-2">Email Body</Label>
+          <div className="space-y-2">
+            <Label className="font-semibold text-sm sm:text-base">
+              Email Body
+            </Label>
 
             <div
               className={`rounded-md ${
@@ -181,25 +188,23 @@ export default function ComposePage() {
                 onChange={(val) => {
                   if (typeof val === "string") {
                     setBody(val);
-                    setErrors((prev) => ({ ...prev, body: undefined }));
+                    setErrors((p) => ({ ...p, body: undefined }));
                   }
                 }}
               />
             </div>
 
             {errors.body && (
-              <p className="text-sm text-red-500 mt-1">{errors.body}</p>
+              <p className="text-xs sm:text-sm text-red-500">{errors.body}</p>
             )}
           </div>
 
-          {/* Recipients info */}
-          <p className="text-sm text-gray-500">
+          <p className="text-xs sm:text-sm text-gray-500">
             Sending to <strong>{recipients.length}</strong> recipient(s)
           </p>
 
-          {/* Send button */}
           <Button
-            className="mt-4 bg-blue-500 hover:bg-blue-400 disabled:opacity-60"
+            className="w-full sm:w-auto bg-blue-500 hover:bg-blue-400 disabled:opacity-60"
             onClick={handleSendEmails}
             disabled={isLoading}
           >
@@ -214,9 +219,8 @@ export default function ComposePage() {
           </Button>
         </TabsContent>
 
-        {/* Recipients Tab */}
-        <TabsContent value="SMS" className="space-y-4">
-          <Label className="font-semibold mb-2">SMS</Label>
+        <TabsContent value="SMS" className="space-y-3">
+          <Label className="font-semibold text-sm sm:text-base">SMS</Label>
           <MinimalTiptapEditor />
         </TabsContent>
       </Tabs>

@@ -132,10 +132,9 @@ export default function FileUploadAndTable({
   });
 
   // Get selected contacts
-   const getSelectedContacts = () => {
+  const getSelectedContacts = () => {
     return table.getSelectedRowModel().rows.map((row) => row.original);
   };
- 
 
   // Handle file upload (CSV/XLSX)
   const handleFileUpload = async (file: File) => {
@@ -186,7 +185,7 @@ export default function FileUploadAndTable({
       localStorage.setItem("email_recipients", JSON.stringify(recipients));
     }
     onSelectedContactsChange?.(selectedContacts);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [table.getSelectedRowModel().rows.length]);
 
   const handleBrowseClick = () => inputRef.current?.click();
@@ -213,43 +212,44 @@ export default function FileUploadAndTable({
   };
 
   return (
-    <div className="    rounded-xl p-4 sm:p-6 text-center space-y-4 ">
-      {/* File Upload Header */}
-      <div className="rounded-xl p-4 sm:p-6  space-y-4 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 ">
-          <div className="flex flex-col space-y-1 text-left">
-            <h2 className="font-semibold text-base sm:text-lg">
+    <div className="rounded-xl p-3 sm:p-6 space-y-6">
+      <div className="rounded-xl p-3 sm:p-6 space-y-4 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="text-left space-y-1">
+            <h2 className="font-semibold text-sm sm:text-lg">
               Import Contacts
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
               Upload a CSV or Excel file to define your recipient list
             </p>
           </div>
+
           <Button
             variant="ghost"
             onClick={downloadTemplate}
             className="p-0 h-auto flex items-center gap-1 self-start sm:self-auto hover:bg-transparent"
           >
-            <Download className="h-4 w-4 text-blue-500 hover:text-blue-400" />
-            <span className="text-sm text-blue-500 hover:text-blue-400">
+            <Download className="h-4 w-4 text-blue-500" />
+            <span className="text-xs sm:text-sm text-blue-500">
               Download Sample Template
             </span>
           </Button>
         </div>
 
-        {/* File Upload Area */}
         <input
           type="file"
           ref={inputRef}
           className="hidden"
+          accept=".csv,.xlsx"
           onChange={(e) => {
             const file = e.target.files?.[0];
             if (file) handleFileUpload(file);
           }}
-          accept=".csv,.xlsx"
         />
+
         <div
-          className="p-6 border border-dashed  shadow-sm rounded-md cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="p-4 sm:p-6 border border-dashed rounded-md cursor-pointer
+                 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           onClick={handleBrowseClick}
           onDragOver={(e) => e.preventDefault()}
           onDrop={(e) => {
@@ -258,159 +258,122 @@ export default function FileUploadAndTable({
             if (file) handleFileUpload(file);
           }}
         >
-          <CloudUpload className="mx-auto mb-2 h-8 w-8 text-blue-500" />
+          <CloudUpload className="mx-auto mb-2 h-7 w-7 sm:h-8 sm:w-8 text-blue-500" />
+
           {fileName ? (
-            <p className="text-sm">
+            <p className="text-xs sm:text-sm text-center">
               Uploaded: <span className="font-medium">{fileName}</span>
             </p>
           ) : (
-            <p className="font-semibold text-base">
+            <p className="text-sm sm:text-base font-medium text-center">
               Drag & Drop your file here
             </p>
           )}
         </div>
+
         <Button
           onClick={handleBrowseClick}
-          className="w-full sm:w-auto bg-blue-500 hover:bg-blue-400"
+          className="w-full  sm:w-auto bg-blue-500 hover:bg-blue-400"
         >
           Browse Files
         </Button>
       </div>
 
-      {/* Table */}
-      <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <Input
-            placeholder="Filter email..."
-            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-            onChange={(e) =>
-              table.getColumn("email")?.setFilterValue(e.target.value)
-            }
-            className="max-w-sm"
-          />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
-                Columns <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              {table
-                .getAllColumns()
-                .filter((col) => col.getCanHide())
-                .map((col) => (
-                  <DropdownMenuCheckboxItem
-                    key={col.id}
-                    className="capitalize"
-                    checked={col.getIsVisible()}
-                    onCheckedChange={(value) => col.toggleVisibility(!!value)}
-                  >
-                    {col.id}
-                  </DropdownMenuCheckboxItem>
+      <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+        <Input
+          placeholder="Filter email..."
+          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          onChange={(e) =>
+            table.getColumn("email")?.setFilterValue(e.target.value)
+          }
+          className="w-full sm:max-w-sm"
+        />
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="w-full sm:w-auto sm:ml-auto">
+              Columns <ChevronDown className="ml-2 h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start">
+            {table
+              .getAllColumns()
+              .filter((col) => col.getCanHide())
+              .map((col) => (
+                <DropdownMenuCheckboxItem
+                  key={col.id}
+                  className="capitalize"
+                  checked={col.getIsVisible()}
+                  onCheckedChange={(v) => col.toggleVisibility(!!v)}
+                >
+                  {col.id}
+                </DropdownMenuCheckboxItem>
+              ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      <div className="rounded-md shadow-lg overflow-x-auto bg-background">
+        <Table className="min-w-[640px] text-sm">
+          <TableHeader>
+            {table.getHeaderGroups().map((group) => (
+              <TableRow key={group.id}>
+                {group.headers.map((header) => (
+                  <TableHead key={header.id}>
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </TableHead>
                 ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+              </TableRow>
+            ))}
+          </TableHeader>
 
-        <div className="rounded-md shadow-lg overflow-x-auto text-start bg-background">
-          <Table className="border-0 border-collapse [&_thead_tr]:border-b-0 [&_tbody_tr]:border-b-0 [&_tr]:border-0 [&_th]:border-0 [&_td]:border-0 divide-y-0 shadow-md">
-            <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <TableHead key={header.id}>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </TableHead>
-                  ))}
-                </TableRow>
-              ))}
-            </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
 
-            <TableBody>
-              {table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between py-3 px-3 sm:px-4">
+          {/* Selected rows text */}
+          <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
+            {table.getFilteredSelectedRowModel().rows.length} of{" "}
+            {table.getFilteredRowModel().rows.length} row(s) selected.
+          </p>
 
-          <div className="flex items-center justify-between py-4 px-4">
-            <div className="text-muted-foreground text-sm">
-              {table.getFilteredSelectedRowModel().rows.length} of{" "}
-              {table.getFilteredRowModel().rows.length} row(s) selected.
-            </div>
+          {/* Buttons */}
+          <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full sm:w-auto"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              Previous
+            </Button>
 
-            <div className="space-x-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.previousPage()}
-                disabled={!table.getCanPreviousPage()}
-              >
-                Previous
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => table.nextPage()}
-                disabled={!table.getCanNextPage()}
-              >
-                Next
-              </Button>
-            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full sm:w-auto"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
+              Next
+            </Button>
           </div>
         </div>
       </div>
-      {/* <Button
-        className="mt-4 bg-blue-500 hover:bg-blue-400"
-        onClick={async () => {
-          const selectedContacts = getSelectedContacts();
-
-          if (selectedContacts.length === 0) {
-            alert("Please select at least one contact");
-            return;
-          }
-
-          try {
-            const response = await fetch("/api/send-email", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                recipients: selectedContacts.map((c) => ({
-                  firstName: c.firstName,
-                  lastName: c.lastName,
-                  email: c.email,
-                  template: "marketing",
-                })),
-              }),
-            });
-
-            const result = await response.json();
-            console.log(result);
-            alert(
-              `Emails sent: ${
-                result.logs.filter((l: any) => l.status === "SENT").length
-              }`
-            );
-          } catch (err) {
-            console.error(err);
-            alert("Failed to send emails");
-          }
-        }}
-      >
-        Send Emails
-      </Button> */}
     </div>
   );
 }

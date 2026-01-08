@@ -60,22 +60,25 @@ export default function EmailLogsTable() {
   }, []);
 
   // Flatten all recipients into table rows - MUST BE BEFORE EARLY RETURNS
- const data: TableRow[] = useMemo(
-  () =>
-    logs
-      .flatMap((log) =>
-        (log.recipients || []).map((r) => ({
-          id: r.id,
-          subject: log.subject,
-          email: r.to,
-          status: r.status,
-          error: r.error || "-",
-          timestamp: r.timestamp,
-        }))
-      )
-      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()), // <-- sort DESC
-  [logs]
-);
+  const data: TableRow[] = useMemo(
+    () =>
+      logs
+        .flatMap((log) =>
+          (log.recipients || []).map((r) => ({
+            id: r.id,
+            subject: log.subject,
+            email: r.to,
+            status: r.status,
+            error: r.error || "-",
+            timestamp: r.timestamp,
+          }))
+        )
+        .sort(
+          (a, b) =>
+            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        ), // <-- sort DESC
+    [logs]
+  );
 
   const columnHelper = createColumnHelper<TableRow>();
 
@@ -120,18 +123,21 @@ export default function EmailLogsTable() {
   if (!logs.length) return <p>No email logs found.</p>;
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Email Logs</h1>
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
+      <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-center sm:text-left">
+        Email Logs
+      </h1>
 
-      <div className="overflow-x-auto shadow-lg rounded-lg">
-        <table className="w-full min-w-[600px] table-auto divide-y">
-          <thead className="">
+      <div className="overflow-x-auto rounded-xl shadow-lg bg-background">
+        <table className="w-full min-w-[520px] sm:min-w-[640px] md:min-w-[720px] text-xs sm:text-sm md:text-base border-collapse">
+          <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0 z-10">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="text-start px-4 py-3 text-gray-700  dark:text-gray-200 font-semibold"
+                    className="px-3 sm:px-4 py-2 sm:py-3 text-left font-semibold
+                           text-gray-700 dark:text-gray-200 whitespace-nowrap"
                   >
                     {flexRender(
                       header.column.columnDef.header,
@@ -143,14 +149,17 @@ export default function EmailLogsTable() {
             ))}
           </thead>
 
-          <tbody className="divide-y ">
+          <tbody className="divide-y">
             {table.getRowModel().rows.map((row) => (
               <tr
                 key={row.id}
-                className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors rounded-lg"
+                className="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
               >
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="px-4 py-2 text-start">
+                  <td
+                    key={cell.id}
+                    className="px-3 sm:px-4 py-2 text-left whitespace-nowrap"
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
@@ -160,27 +169,34 @@ export default function EmailLogsTable() {
         </table>
       </div>
 
-      {/* Pagination Controls */}
-      <div className="flex justify-end mt-4 space-x-2">
-        <button
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-          className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
-        >
-          Next
-        </button>
-        <span className="ml-4 text-gray-500">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
+        <span className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">
           Page {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </span>
+
+        <div className="flex gap-2 justify-center sm:justify-end">
+          <button
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+            className="px-3 sm:px-4 py-2 rounded-md text-sm
+                   bg-gray-200 hover:bg-gray-300
+                   disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Previous
+          </button>
+
+          <button
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+            className="px-3 sm:px-4 py-2 rounded-md text-sm
+                   bg-blue-500 text-white hover:bg-blue-600
+                   disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Next
+          </button>
+        </div>
       </div>
-    </div>  
+    </div>
   );
 }
