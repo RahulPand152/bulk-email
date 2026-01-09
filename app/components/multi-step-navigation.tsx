@@ -17,10 +17,10 @@ export default function MultiStepForm() {
   const progressWidth = ((step - 1) / (totalSteps - 1)) * 100;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6 shadow-2xl rounded-2xl ">
+    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6 shadow-2xl rounded-2xl dark:bg-gray-800 ">
       {/* Header */}
       <div className="space-y-2">
-        <h1 className="text-2xl sm:text-3xl font-bold">
+        <h1 className="md:text-2xl text-xl font-bold">
           Compose Multi-Step Notice
         </h1>
         <p className="text-gray-500 dark:text-gray-400">
@@ -33,7 +33,7 @@ export default function MultiStepForm() {
         {/* Step container */}
         <div className="relative flex justify-between items-center">
           {/* Background line */}
-          <div className="absolute top-5 left-5 right-5 h-1 bg-gray-300   rounded-full" />
+          <div className="absolute top-5 left-5 right-5 h-1 bg-gray-300 dark:bg-gray-700   rounded-full" />
 
           {/* Progress line */}
           <div

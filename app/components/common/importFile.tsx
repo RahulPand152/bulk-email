@@ -212,11 +212,12 @@ export default function FileUploadAndTable({
   };
 
   return (
-    <div className="rounded-xl p-3 sm:p-6 space-y-6">
-      <div className="rounded-xl p-3 sm:p-6 space-y-4 shadow-sm">
+    <div className="w-full max-w-full  sm:max-w-7xl mx-auto px-2 sm:px-6 py-4 space-y-6 dark:bg-gray-800">
+      {/* Upload Section */}
+      <div className="rounded-xl p-4 sm:p-6 space-y-4 shadow-sm w-full">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="text-left space-y-1">
-            <h2 className="font-semibold text-sm sm:text-lg">
+          <div className="space-y-1">
+            <h2 className="font-semibold text-base sm:text-lg">
               Import Contacts
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
@@ -248,7 +249,8 @@ export default function FileUploadAndTable({
         />
 
         <div
-          className="p-4 sm:p-6 border border-dashed rounded-md cursor-pointer
+          className="p-6 sm:p-8 min-h-[150px] sm:min-h-[180px]
+                 border border-dashed rounded-md cursor-pointer
                  hover:bg-gray-100 dark:hover:bg-gray-700 transition"
           onClick={handleBrowseClick}
           onDragOver={(e) => e.preventDefault()}
@@ -258,14 +260,14 @@ export default function FileUploadAndTable({
             if (file) handleFileUpload(file);
           }}
         >
-          <CloudUpload className="mx-auto mb-2 h-7 w-7 sm:h-8 sm:w-8 text-blue-500" />
+          <CloudUpload className="mx-auto mb-2 h-8 w-8 text-blue-500" />
 
           {fileName ? (
-            <p className="text-xs sm:text-sm text-center">
+            <p className="text-sm text-center">
               Uploaded: <span className="font-medium">{fileName}</span>
             </p>
           ) : (
-            <p className="text-sm sm:text-base font-medium text-center">
+            <p className="text-base font-medium text-center">
               Drag & Drop your file here
             </p>
           )}
@@ -273,13 +275,14 @@ export default function FileUploadAndTable({
 
         <Button
           onClick={handleBrowseClick}
-          className="w-full  sm:w-auto bg-blue-500 hover:bg-blue-400"
+          className="w-full sm:w-auto bg-blue-500 hover:bg-blue-400"
         >
           Browse Files
         </Button>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+      {/* Filters */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center w-full">
         <Input
           placeholder="Filter email..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
@@ -313,8 +316,9 @@ export default function FileUploadAndTable({
         </DropdownMenu>
       </div>
 
-      <div className="rounded-md shadow-lg overflow-x-auto bg-background">
-        <Table className="min-w-[640px] text-sm">
+      {/* Table */}
+      <div className="rounded-md shadow-lg overflow-x-auto bg-background w-full bg-gray-800">
+        <Table className="min-w-[720px] sm:min-w-full text-sm">
           <TableHeader>
             {table.getHeaderGroups().map((group) => (
               <TableRow key={group.id}>
@@ -343,15 +347,14 @@ export default function FileUploadAndTable({
           </TableBody>
         </Table>
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between py-3 px-3 sm:px-4">
-          {/* Selected rows text */}
+        {/* Pagination */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between py-4 px-4">
           <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
             {table.getFilteredRowModel().rows.length} row(s) selected.
           </p>
 
-          {/* Buttons */}
-          <div className="flex flex-col xs:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="flex flex-col xs:flex-row gap-2 w-full sm:w-auto">
             <Button
               variant="outline"
               size="sm"
