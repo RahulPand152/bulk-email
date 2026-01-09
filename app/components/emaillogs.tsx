@@ -124,13 +124,13 @@ export default function EmailLogsTable() {
 
   return (
     <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
-      <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-center sm:text-left">
+      <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-start sm:text-left">
         Email Logs
       </h1>
 
-      <div className="overflow-x-auto rounded-xl shadow-lg bg-background">
+      <div className="overflow-x-auto rounded-xl shadow-lg bg-background   dark:bg-gray-800 ">
         <table className="w-full min-w-[520px] sm:min-w-[640px] md:min-w-[720px] text-xs sm:text-sm md:text-base border-collapse">
-          <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0 z-10">
+          <thead className="bg-gray-50sticky top-0 z-10">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
