@@ -1,17 +1,24 @@
-import { NextResponse } from "next/server";
-import db from "@/app/lib/db";
+import prisma from "@/lib/generated/prisma";
+
+export const runtime = "nodejs";
 
 export async function GET() {
   try {
-    await db.read();
+    const logs = await prisma.emailLog.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
-    const emailLogs = db.data?.emailLogs || [];
+    return Response.json({
+      success: true,
+      logs,
+    });
+  } catch (error) {
+    console.error("Fetch email logs failed:", error);
 
-    return NextResponse.json(emailLogs);
-  } catch (err) {
-    console.error("Error fetching email logs:", err);
-    return NextResponse.json(
-      { error: "Failed to fetch email logs" },
+    return Response.json(
+      { success: false, error: "Unable to fetch logs" },
       { status: 500 }
     );
   }
