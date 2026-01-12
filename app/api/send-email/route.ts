@@ -1,7 +1,8 @@
+import prisma from "@/lib/generated/prisma";
+import { EmailLog } from "@/lib/generated/prisma/client";
 import nodemailer from "nodemailer";
-import db from "@/app/lib/db"; // your lowdb instance
-
 export const runtime = "nodejs";
+import { randomUUID } from "crypto";
 
 export async function POST(req: Request) {
   try {
@@ -35,14 +36,7 @@ export async function POST(req: Request) {
       },
     });
 
-    const sendLogs: Array<{
-      id: string;
-      to: string;
-      subject: string;
-      status: "SENT" | "FAILED";
-      error: string | null;
-      timestamp: string;
-    }> = [];
+    const emailLogs: EmailLog[] = [];
 
     await Promise.all(
       recipients.map(
@@ -82,22 +76,24 @@ export async function POST(req: Request) {
   `, //
             });
 
-            sendLogs.push({
-              id: crypto.randomUUID(),
+            emailLogs.push({
               to: recipient.email,
               subject: customSubject,
               status: "SENT",
               error: null,
-              timestamp: new Date().toISOString(),
+              body: customBody,
+              id: randomUUID(), // <-- Unique UUID
+              createdAt: new Date(),
             });
           } catch (err) {
-            sendLogs.push({
-              id: crypto.randomUUID(),
+            emailLogs.push({
               to: recipient.email,
               subject: customSubject,
               status: "FAILED",
+              body: customBody,
+              id: new Date().toISOString(),
+              createdAt: new Date(),
               error: err instanceof Error ? err.message : String(err),
-              timestamp: new Date().toISOString(),
             });
           }
         }
@@ -105,20 +101,32 @@ export async function POST(req: Request) {
     );
 
     // Persist logs to lowdb
-    await db.read();
-    db.data!.emailLogs = db.data!.emailLogs || [];
-    db.data!.emailLogs.push({
-      id: `log_${Date.now()}`,
-      subject: customSubject,
-      sentAt: new Date().toISOString(),
-      totalRecipients: recipients.length,
-      sent: sendLogs.filter((s) => s.status === "SENT").length,
-      failed: sendLogs.filter((s) => s.status === "FAILED").length,
-      recipients: sendLogs,
-    });
-    await db.write();
+    // await db.read();
+    // db.data!.emailLogs = db.data!.emailLogs || [];
+    // db.data!.emailLogs.push({
+    //   id: `log_${Date.now()}`,
+    //   subject: customSubject,
+    //   sentAt: new Date().toISOString(),
+    //   totalRecipients: recipients.length,
+    //   sent: sendLogs.filter((s) => s.status === "SENT").length,
+    //   failed: sendLogs.filter((s) => s.status === "FAILED").length,
+    //   recipients: sendLogs,
+    // });
+    // await db.write();
 
-    return Response.json({ success: true, logs: sendLogs });
+    // return Response.json({ success: true, logs: sendLogs });
+
+    const logs = await prisma.emailLog.createMany({
+      data: emailLogs,
+    });
+
+    console.log(logs, "......logs");
+
+    return Response.json({
+      success: true,
+      sent: emailLogs.filter((e) => e.status === "SENT").length,
+      failed: emailLogs.filter((e) => e.status === "FAILED").length,
+    });
   } catch (error) {
     console.error("Bulk email failed:", error);
     return Response.json(

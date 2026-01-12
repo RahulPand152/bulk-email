@@ -10,26 +10,6 @@ import {
 } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
 
-type RecipientLog = {
-  id: string;
-  to: string;
-  status: "SENT" | "FAILED";
-  error?: string | null;
-  timestamp: string;
-};
-
-type EmailLog = {
-  id: string;
-  subject: string;
-  templateId?: string;
-  sentAt: string;
-  totalRecipients: number;
-  sent: number;
-  failed: number;
-  recipients: RecipientLog[];
-};
-
-// Flattened row type for table
 type TableRow = {
   id: string;
   subject: string;
@@ -39,44 +19,53 @@ type TableRow = {
   timestamp: string;
 };
 
-export default function EmailLogsTable() {
-  const [logs, setLogs] = useState<EmailLog[]>([]);
+
+
+export default function EmailLogsPage() {
+  const [logs, setLogs] = useState<TableRow[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch logs
+  
+
   useEffect(() => {
     const fetchLogs = async () => {
       try {
         const res = await fetch("/api/email-logs");
         const data = await res.json();
-        setLogs(data || []);
-      } catch (err) {
-        console.error("Failed to fetch logs:", err);
+
+        if (data.success && Array.isArray(data.logs)) {
+          const formatted: TableRow[] = data.logs.map((log: any) => ({
+            id: log.id,
+            subject: log.subject,
+            email: log.to,
+            status: log.status,
+            error: log.error ?? "-",
+            timestamp: log.createdAt,
+          }));
+
+          setLogs(formatted);
+        } else {
+          setLogs([]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch logs:", error);
+        setLogs([]);
       } finally {
         setLoading(false);
       }
     };
+
     fetchLogs();
   }, []);
 
-  // Flatten all recipients into table rows - MUST BE BEFORE EARLY RETURNS
-  const data: TableRow[] = useMemo(
+  
+
+  const data = useMemo(
     () =>
-      logs
-        .flatMap((log) =>
-          (log.recipients || []).map((r) => ({
-            id: r.id,
-            subject: log.subject,
-            email: r.to,
-            status: r.status,
-            error: r.error || "-",
-            timestamp: r.timestamp,
-          }))
-        )
-        .sort(
-          (a, b) =>
-            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-        ), // <-- sort DESC
+      logs.sort(
+        (a, b) =>
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      ),
     [logs]
   );
 
@@ -118,26 +107,26 @@ export default function EmailLogsTable() {
     getPaginationRowModel: getPaginationRowModel(),
   });
 
-  // NOW we can do early returns after all hooks are called
-  if (loading) return <p>Loading email logs...</p>;
-  if (!logs.length) return <p>No email logs found.</p>;
+
+
+  if (loading) return <p className="p-6">Loading email logs...</p>;
+  if (!logs.length) return <p className="p-6">No email logs found.</p>;
+
+
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
-      <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-start sm:text-left">
-        Email Logs
-      </h1>
+    <div className="max-w-7xl mx-auto px-4 py-6 ">
+      <h1 className="text-2xl font-bold mb-4"> Email Logs</h1>
 
-      <div className="overflow-x-auto rounded-xl shadow-lg bg-background   dark:bg-gray-800 ">
-        <table className="w-full min-w-[520px] sm:min-w-[640px] md:min-w-[720px] text-xs sm:text-sm md:text-base border-collapse">
-          <thead className="bg-gray-50sticky top-0 z-10">
+      <div className="overflow-x-auto rounded-xl shadow ">
+        <table className="w-full text-sm border-collapse dark:bg-gray-800">
+          <thead className="bg-gray-100 dark:bg-gray-700">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="px-3 sm:px-4 py-2 sm:py-3 text-left font-semibold
-                           text-gray-700 dark:text-gray-200 whitespace-nowrap"
+                    className="px-4 py-3 text-left font-semibold"
                   >
                     {flexRender(
                       header.column.columnDef.header,
@@ -151,15 +140,9 @@ export default function EmailLogsTable() {
 
           <tbody className="divide-y">
             {table.getRowModel().rows.map((row) => (
-              <tr
-                key={row.id}
-                className="hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-              >
+              <tr key={row.id} className="hover:bg-gray-50 dark:hover:bg-gray-900">
                 {row.getVisibleCells().map((cell) => (
-                  <td
-                    key={cell.id}
-                    className="px-3 sm:px-4 py-2 text-left whitespace-nowrap"
-                  >
+                  <td key={cell.id} className="px-4 py-2">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
@@ -169,19 +152,18 @@ export default function EmailLogsTable() {
         </table>
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
-        <span className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">
+      {/* Pagination */}
+      <div className="flex justify-between items-center mt-4">
+        <span className="text-sm text-gray-500">
           Page {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </span>
 
-        <div className="flex gap-2 justify-center sm:justify-end">
+        <div className="flex gap-2">
           <button
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="px-3 sm:px-4 py-2 rounded-md text-sm
-                   bg-gray-200 hover:bg-gray-300
-                   disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 rounded bg-gray-200 disabled:opacity-50"
           >
             Previous
           </button>
@@ -189,9 +171,7 @@ export default function EmailLogsTable() {
           <button
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="px-3 sm:px-4 py-2 rounded-md text-sm
-                   bg-blue-500 text-white hover:bg-blue-600
-                   disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-50"
           >
             Next
           </button>
