@@ -1,4 +1,4 @@
-import prisma from "@/lib/generated/prisma";
+import prisma from "@/lib/prisma";
 import { EmailLog } from "@/lib/generated/prisma/client";
 import nodemailer from "nodemailer";
 export const runtime = "nodejs";
